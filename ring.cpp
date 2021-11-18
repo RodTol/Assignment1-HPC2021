@@ -9,11 +9,11 @@ int main ( int argc , char *argv[ ] )
     int irank, t = 1;
     int n_proc, n_mess = 0;
     int right_p, left_p;
-    int recv_tag;
+    int recv_tag_r, recv_tag_l;
     int l_value, r_value;
-
-    MPI_Status status;
-    MPI_Request request;
+    double start_time, end_time, time, sum_time;
+    double time_tot;
+    MPI_Status status_r, status_l, status;
     MPI_Comm ring_com;
 
     MPI_Init(&argc,&argv);
@@ -41,41 +41,76 @@ int main ( int argc , char *argv[ ] )
         {
             l_value = -i;
             r_value = i;
+            recv_tag_r = i*10;
+            recv_tag_l = i*10;
         }
     }
     
 
-    std::cout << "Starting point" << std::endl;
-    std::cout << "I am " << irank << " and my value is " << r_value << std::endl;
+    //std::cout << "Starting point" << std::endl;
+    //std::cout << "I am " << irank << " and my value is " << r_value << std::endl;
 
-
+    start_time = MPI_Wtime();
     for (int i = 0; i < n_proc; i++)
     {
-        if (i == 0) {
-            MPI_Send(&r_value, 1, MPI_INT, right_p, irank*10, ring_com);
-        }
-        else  {
-            MPI_Send(&r_value, 1, MPI_INT, right_p, recv_tag, ring_com);
-        }
-
-        MPI_Recv( &r_value, 1, MPI_INT, left_p, MPI_ANY_TAG, ring_com, &status );
+        /*GIRO DI DESTRA*/
+        MPI_Send(&r_value, 1, MPI_INT, right_p, recv_tag_r, ring_com);
+        MPI_Recv( &r_value, 1, MPI_INT, left_p, MPI_ANY_TAG, ring_com, &status_r );
         /*dentro la variabile status è salvato il tag del messagio ricevuto, quindi
         la posso salvare per il prossimo send*/
-        recv_tag = status.MPI_TAG;
+        recv_tag_r = status_r.MPI_TAG;
         n_mess += 1;
 
+        /*GIRO DI SINISTRA*/
+        MPI_Send(&l_value, 1, MPI_INT, left_p, recv_tag_l, ring_com);
+        MPI_Recv( &l_value, 1, MPI_INT, right_p, MPI_ANY_TAG, ring_com, &status_l );
+        /*dentro la variabile status è salvato il tag del messagio ricevuto, quindi
+        la posso salvare per il prossimo send*/
+        recv_tag_l = status_l.MPI_TAG;
+        n_mess += 1;
+
+        /*Sommo o sottraggo il mio rank a ogni mesaggio che mi arriva*/
         if (i < n_proc-1)
         {
             r_value += irank;
+            l_value -= irank;
         }
-        std::cout << "Iteration number " << i << std::endl;
-        std::cout << "I am " << irank << " and my value is " << r_value << " with tag " << recv_tag  <<std::endl;
+        //std::cout << "Iteration number " << i << std::endl;
+        //std::cout << "I am " << irank << " and my value is " << r_value << " with tag " << recv_tag  <<std::endl;
     }
     
-    
-    std::cout << "I am process " << irank << " and I have recieved " << n_mess <<
-     " messages. My final messages have tag " << recv_tag << " and value " << l_value << " , " 
-     << r_value <<std::endl;
+    if (recv_tag_r != recv_tag_l)
+    {
+        std::cout << "The two tags don't match" << std::endl;
+        MPI_Finalize() ; // let MPI finish up 
+        exit;
+    }
+   end_time=MPI_Wtime();
 
-    MPI_Finalize() ; // let MPI finish up /
+    std::cout << "I am process " << irank << " and I have received " << n_mess <<
+     " messages. My final messages have tag " << recv_tag_r << " and value " << l_value << " , " 
+     << r_value <<std::endl;
+    
+    time = end_time - start_time;
+
+    //std::cout << "On process " << irank << " the walltime is " << time << std::endl;
+
+    if (irank == 0) {
+     time_tot = time;
+     for (int i = 1; i < n_proc; i++) {
+        MPI_Recv( &time, 1, MPI_DOUBLE, i, 666, MPI_COMM_WORLD, &status);
+        time_tot += time;
+     }
+    }
+    else {
+        MPI_Send(&time, 1, MPI_DOUBLE, 0, 666, MPI_COMM_WORLD);
+    }
+
+    if (irank == 0)
+    {
+     std::cout << "The mean is " << time_tot/double(n_proc) << std::endl;
+    }
+    
+
+    MPI_Finalize() ; // let MPI finish up 
 }
