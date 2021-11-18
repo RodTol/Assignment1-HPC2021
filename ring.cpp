@@ -6,6 +6,7 @@
 
 int main ( int argc , char *argv[ ] )
 {
+    double sum_of_mean = 0;
     int irank, t = 1;
     int n_proc, n_mess = 0;
     int right_p, left_p;
@@ -34,6 +35,10 @@ int main ( int argc , char *argv[ ] )
     /*Indico quanti processori sono assegnati al comunicatore*/
     MPI_Comm_size(ring_com,&n_proc);
 
+    /*Vogliamo fare più run in una esecuzione*/
+    for (int j = 0; j < 10; j++)
+    {
+    
     /*Assegno il valore iniziale a ogni processore, che è uguale al suo rank*/
     for (int i = 0; i < n_proc; i++)
     {
@@ -85,12 +90,15 @@ int main ( int argc , char *argv[ ] )
         MPI_Finalize() ; // let MPI finish up 
         exit;
     }
-   end_time=MPI_Wtime();
+    end_time=MPI_Wtime();
 
-    std::cout << "I am process " << irank << " and I have received " << n_mess <<
+    if (j == 9)
+    {
+        std::cout << "I am process " << irank << " and I have received " << n_mess <<
      " messages. My final messages have tag " << recv_tag_r << " and value " << l_value << " , " 
      << r_value <<std::endl;
-    
+    }
+
     time = end_time - start_time;
 
     //std::cout << "On process " << irank << " the walltime is " << time << std::endl;
@@ -101,16 +109,24 @@ int main ( int argc , char *argv[ ] )
         MPI_Recv( &time, 1, MPI_DOUBLE, i, 666, MPI_COMM_WORLD, &status);
         time_tot += time;
      }
+     sum_of_mean += time_tot/double(n_proc);
     }
     else {
         MPI_Send(&time, 1, MPI_DOUBLE, 0, 666, MPI_COMM_WORLD);
     }
+    
+    /*if (irank == 0)
+    {
+     std::cout << "The mean time is " << time_tot/double(n_proc) << std::endl;
+    }*/
+    
+    }
+
 
     if (irank == 0)
     {
-     std::cout << "The mean is " << time_tot/double(n_proc) << std::endl;
+     std::cout << "The mean of mean time is " << sum_of_mean/10.0 << std::endl;
     }
-    
 
     MPI_Finalize() ; // let MPI finish up 
 }
