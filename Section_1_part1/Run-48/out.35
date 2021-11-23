@@ -1,5 +1,5 @@
 I am process 0 and I have received 70 messages. My final messages have tag 0 and value -595 , 595
-The mean of time is :8.16057e-05
+The mean of time is :9.01777e-05
 I am process 1 and I have received 70 messages. My final messages have tag 10 and value -595 , 595
 I am process 2 and I have received 70 messages. My final messages have tag 20 and value -595 , 595
 I am process 3 and I have received 70 messages. My final messages have tag 30 and value -595 , 595
@@ -20,6 +20,7 @@ I am process 17 and I have received 70 messages. My final messages have tag 170 
 I am process 18 and I have received 70 messages. My final messages have tag 180 and value -595 , 595
 I am process 19 and I have received 70 messages. My final messages have tag 190 and value -595 , 595
 I am process 20 and I have received 70 messages. My final messages have tag 200 and value -595 , 595
+I am process 21 and I have received 70 messages. My final messages have tag 210 and value -595 , 595
 I am process 22 and I have received 70 messages. My final messages have tag 220 and value -595 , 595
 I am process 23 and I have received 70 messages. My final messages have tag 230 and value -595 , 595
 I am process 24 and I have received 70 messages. My final messages have tag 240 and value -595 , 595
@@ -33,4 +34,3 @@ I am process 31 and I have received 70 messages. My final messages have tag 310 
 I am process 32 and I have received 70 messages. My final messages have tag 320 and value -595 , 595
 I am process 33 and I have received 70 messages. My final messages have tag 330 and value -595 , 595
 I am process 34 and I have received 70 messages. My final messages have tag 340 and value -595 , 595
-I am process 21 and I have received 70 messages. My final messages have tag 210 and value -595 , 595

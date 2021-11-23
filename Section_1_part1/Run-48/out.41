@@ -1,7 +1,5 @@
 I am process 0 and I have received 82 messages. My final messages have tag 0 and value -820 , 820
-The mean of time is :0.000116129
 I am process 1 and I have received 82 messages. My final messages have tag 10 and value -820 , 820
-I am process 2 and I have received 82 messages. My final messages have tag 20 and value -820 , 820
 I am process 3 and I have received 82 messages. My final messages have tag 30 and value -820 , 820
 I am process 4 and I have received 82 messages. My final messages have tag 40 and value -820 , 820
 I am process 5 and I have received 82 messages. My final messages have tag 50 and value -820 , 820
@@ -14,15 +12,16 @@ I am process 11 and I have received 82 messages. My final messages have tag 110 
 I am process 12 and I have received 82 messages. My final messages have tag 120 and value -820 , 820
 I am process 13 and I have received 82 messages. My final messages have tag 130 and value -820 , 820
 I am process 14 and I have received 82 messages. My final messages have tag 140 and value -820 , 820
-I am process 15 and I have received 82 messages. My final messages have tag 150 and value -820 , 820
 I am process 16 and I have received 82 messages. My final messages have tag 160 and value -820 , 820
+I am process 17 and I have received 82 messages. My final messages have tag 170 and value -820 , 820
 I am process 18 and I have received 82 messages. My final messages have tag 180 and value -820 , 820
 I am process 19 and I have received 82 messages. My final messages have tag 190 and value -820 , 820
 I am process 20 and I have received 82 messages. My final messages have tag 200 and value -820 , 820
 I am process 21 and I have received 82 messages. My final messages have tag 210 and value -820 , 820
 I am process 22 and I have received 82 messages. My final messages have tag 220 and value -820 , 820
 I am process 23 and I have received 82 messages. My final messages have tag 230 and value -820 , 820
-I am process 17 and I have received 82 messages. My final messages have tag 170 and value -820 , 820
+I am process 2 and I have received 82 messages. My final messages have tag 20 and value -820 , 820
+I am process 15 and I have received 82 messages. My final messages have tag 150 and value -820 , 820
 I am process 24 and I have received 82 messages. My final messages have tag 240 and value -820 , 820
 I am process 25 and I have received 82 messages. My final messages have tag 250 and value -820 , 820
 I am process 26 and I have received 82 messages. My final messages have tag 260 and value -820 , 820
@@ -40,3 +39,4 @@ I am process 37 and I have received 82 messages. My final messages have tag 370 
 I am process 38 and I have received 82 messages. My final messages have tag 380 and value -820 , 820
 I am process 39 and I have received 82 messages. My final messages have tag 390 and value -820 , 820
 I am process 40 and I have received 82 messages. My final messages have tag 400 and value -820 , 820
+The mean of time is :9.47011e-05

@@ -1,8 +1,3 @@
-I am process 0 and I have received 56 messages. My final messages have tag 0 and value -378 , 378
-The mean of time is :7.65215e-05
-I am process 1 and I have received 56 messages. My final messages have tag 10 and value -378 , 378
-I am process 2 and I have received 56 messages. My final messages have tag 20 and value -378 , 378
-I am process 3 and I have received 56 messages. My final messages have tag 30 and value -378 , 378
 I am process 4 and I have received 56 messages. My final messages have tag 40 and value -378 , 378
 I am process 5 and I have received 56 messages. My final messages have tag 50 and value -378 , 378
 I am process 6 and I have received 56 messages. My final messages have tag 60 and value -378 , 378
@@ -19,10 +14,15 @@ I am process 16 and I have received 56 messages. My final messages have tag 160 
 I am process 17 and I have received 56 messages. My final messages have tag 170 and value -378 , 378
 I am process 18 and I have received 56 messages. My final messages have tag 180 and value -378 , 378
 I am process 19 and I have received 56 messages. My final messages have tag 190 and value -378 , 378
-I am process 20 and I have received 56 messages. My final messages have tag 200 and value -378 , 378
 I am process 21 and I have received 56 messages. My final messages have tag 210 and value -378 , 378
 I am process 22 and I have received 56 messages. My final messages have tag 220 and value -378 , 378
 I am process 23 and I have received 56 messages. My final messages have tag 230 and value -378 , 378
+I am process 0 and I have received 56 messages. My final messages have tag 0 and value -378 , 378
+The mean of time is :6.64447e-05
+I am process 1 and I have received 56 messages. My final messages have tag 10 and value -378 , 378
+I am process 2 and I have received 56 messages. My final messages have tag 20 and value -378 , 378
+I am process 3 and I have received 56 messages. My final messages have tag 30 and value -378 , 378
+I am process 20 and I have received 56 messages. My final messages have tag 200 and value -378 , 378
 I am process 24 and I have received 56 messages. My final messages have tag 240 and value -378 , 378
 I am process 25 and I have received 56 messages. My final messages have tag 250 and value -378 , 378
 I am process 26 and I have received 56 messages. My final messages have tag 260 and value -378 , 378

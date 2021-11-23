@@ -12,3 +12,4 @@ echo "executing on ", ${procs}, "  processors"
 mpirun -np ${procs} ring.x >out.${procs} 2>/dev/null
 done 
 likwid-topology -g
+cat $PBS_NODEFILE

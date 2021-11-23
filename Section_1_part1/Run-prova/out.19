@@ -1,5 +1,6 @@
 I am process 1 and I have received 38 messages. My final messages have tag 10 and value -171 , 171
 I am process 2 and I have received 38 messages. My final messages have tag 20 and value -171 , 171
+I am process 3 and I have received 38 messages. My final messages have tag 30 and value -171 , 171
 I am process 4 and I have received 38 messages. My final messages have tag 40 and value -171 , 171
 I am process 5 and I have received 38 messages. My final messages have tag 50 and value -171 , 171
 I am process 6 and I have received 38 messages. My final messages have tag 60 and value -171 , 171
@@ -16,5 +17,4 @@ I am process 16 and I have received 38 messages. My final messages have tag 160 
 I am process 17 and I have received 38 messages. My final messages have tag 170 and value -171 , 171
 I am process 18 and I have received 38 messages. My final messages have tag 180 and value -171 , 171
 I am process 0 and I have received 38 messages. My final messages have tag 0 and value -171 , 171
-The mean of time is :2.38427e-05
-I am process 3 and I have received 38 messages. My final messages have tag 30 and value -171 , 171
+The mean of time is :2.37911e-05

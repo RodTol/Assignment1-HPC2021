@@ -1,5 +1,5 @@
 I am process 0 and I have received 90 messages. My final messages have tag 0 and value -990 , 990
-The mean of time is :0.000103541
+The mean of time is :0.000104194
 I am process 1 and I have received 90 messages. My final messages have tag 10 and value -990 , 990
 I am process 2 and I have received 90 messages. My final messages have tag 20 and value -990 , 990
 I am process 3 and I have received 90 messages. My final messages have tag 30 and value -990 , 990
@@ -23,7 +23,6 @@ I am process 20 and I have received 90 messages. My final messages have tag 200 
 I am process 21 and I have received 90 messages. My final messages have tag 210 and value -990 , 990
 I am process 22 and I have received 90 messages. My final messages have tag 220 and value -990 , 990
 I am process 23 and I have received 90 messages. My final messages have tag 230 and value -990 , 990
-I am process 24 and I have received 90 messages. My final messages have tag 240 and value -990 , 990
 I am process 25 and I have received 90 messages. My final messages have tag 250 and value -990 , 990
 I am process 26 and I have received 90 messages. My final messages have tag 260 and value -990 , 990
 I am process 27 and I have received 90 messages. My final messages have tag 270 and value -990 , 990
@@ -44,3 +43,4 @@ I am process 41 and I have received 90 messages. My final messages have tag 410 
 I am process 42 and I have received 90 messages. My final messages have tag 420 and value -990 , 990
 I am process 43 and I have received 90 messages. My final messages have tag 430 and value -990 , 990
 I am process 44 and I have received 90 messages. My final messages have tag 440 and value -990 , 990
+I am process 24 and I have received 90 messages. My final messages have tag 240 and value -990 , 990

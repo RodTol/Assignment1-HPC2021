@@ -1,6 +1,5 @@
 I am process 0 and I have received 32 messages. My final messages have tag 0 and value -120 , 120
-The mean of time is :1.97475e-05
-I am process 1 and I have received 32 messages. My final messages have tag 10 and value -120 , 120
+The mean of time is :2.0145e-05
 I am process 2 and I have received 32 messages. My final messages have tag 20 and value -120 , 120
 I am process 3 and I have received 32 messages. My final messages have tag 30 and value -120 , 120
 I am process 4 and I have received 32 messages. My final messages have tag 40 and value -120 , 120
@@ -15,3 +14,4 @@ I am process 12 and I have received 32 messages. My final messages have tag 120 
 I am process 13 and I have received 32 messages. My final messages have tag 130 and value -120 , 120
 I am process 14 and I have received 32 messages. My final messages have tag 140 and value -120 , 120
 I am process 15 and I have received 32 messages. My final messages have tag 150 and value -120 , 120
+I am process 1 and I have received 32 messages. My final messages have tag 10 and value -120 , 120
