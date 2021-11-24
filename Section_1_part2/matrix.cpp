@@ -365,8 +365,10 @@ if (irank == master)
     std::cout << "Caso bi-dimensionale-----------------------------------------" << std::endl;
 }
     //  OCIO AL NUMERO DI CASI
-    for (int paradigm= 1; paradigm < 8; paradigm++)
+    
+    for (int kallla= 1; kallla < 9; kallla++)
     {
+        int paradigm = kallla;
         if (irank == master)
         {
             std::cout << "Paradigma " << dimensioni[paradigm][0] << "  " << dimensioni[paradigm][1] << 
@@ -374,6 +376,7 @@ if (irank == master)
         }
         
         int periodic[2] = {0,0}, topolo[2] = {dimensioni[paradigm][0], dimensioni[paradigm][1]};
+
         MPI_Comm TwoD_com;
 
         /*Creo un comunicatore per una virtual topology 1-D*/
