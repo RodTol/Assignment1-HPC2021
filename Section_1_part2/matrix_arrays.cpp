@@ -11,6 +11,11 @@
 
 double d_gen(double Min_val, double Max_val);
 
+void matrix_all(int x, int y, int z, double***& matrix);
+
+void matrix_del(int x, int y, double***& matrix);
+
+
 int main ( int argc , char *argv[ ] )
 {
     /*VARIABILE PER ATTIVARE CONTROLLI EXTRA*/
@@ -41,8 +46,8 @@ int main ( int argc , char *argv[ ] )
     dim_z_fake = atoi(argv[3]);
 
     int dimensioni[39][3] = {
-        {24, 1, 1} ,
-    /*2-dinension*/
+        {8, 1, 1} , //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    /*2-dimension*/
         {2, 12, 1} ,
         {3, 8, 1} ,
         {4,6,1} ,
@@ -94,8 +99,11 @@ int main ( int argc , char *argv[ ] )
     MPI_Comm_size(OneD_com,&n_proc);
 
     /*Creiamo le matrici base*/
-    double matrix1[dim_x][dim_y][dim_z], matrix2[dim_x][dim_y][dim_z], matrix3[dim_x][dim_y][dim_z],
-     matrix_true[dim_x][dim_y][dim_z];
+    double*** matrix1, *** matrix2, *** matrix3, *** matrix_true;
+    matrix_all(dim_x, dim_y, dim_z, matrix1);
+    matrix_all(dim_x, dim_y, dim_z, matrix2);
+    matrix_all(dim_x, dim_y, dim_z, matrix3);
+    matrix_all(dim_x, dim_y, dim_z, matrix_true);
 
     /*Occhio a quando farai il ciclo*/
     dim_x_sub = dim_x/dimensioni[0][0];
@@ -140,12 +148,17 @@ int main ( int argc , char *argv[ ] )
     }
     
     /*Creiamo le nostre matrici modificate, che nel caso ogni
-    resto sia nullo, avranno dimensione nulla*/
-    double matrix1_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {}, matrix2_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {},
-    matrix3_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {};
+    resto sia nullo, avranno dimensione nulla.
+    Di base il creator dovrebbe metterle uguali a 0*/
+    double*** matrix1_fake, *** matrix2_fake, *** matrix3_fake;
+    matrix_all(dim_x_fake, dim_y_fake, dim_z_fake, matrix1_fake);
+    matrix_all(dim_x_fake, dim_y_fake, dim_z_fake, matrix2_fake);
+    matrix_all(dim_x_fake, dim_y_fake, dim_z_fake, matrix3_fake);
 
-    double sub_matrix1[dim_x_sub][dim_y_sub][dim_z_sub], sub_matrix2[dim_x_sub][dim_y_sub][dim_z_sub],
-     sub_matrix3[dim_x_sub][dim_y_sub][dim_z_sub];
+    double*** sub_matrix1, *** sub_matrix2, *** sub_matrix3;
+    matrix_all(dim_x_sub, dim_y_sub, dim_z_sub, sub_matrix1);
+    matrix_all(dim_x_sub, dim_y_sub, dim_z_sub, sub_matrix2);
+    matrix_all(dim_x_sub, dim_y_sub, dim_z_sub, sub_matrix3);
 
     volume =  dim_x_sub*dim_y_sub*dim_z_sub;
 
@@ -175,11 +188,12 @@ int main ( int argc , char *argv[ ] )
             }
         }
 
+
         if (check == 1)
         {
             std::cout << "------------MATRIX 1------------\n";
             /*Check dei valori di una fetta*/
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < dim_x; i++)
             {
             for (int j = 0; j < dim_y; j++)
             {
@@ -190,7 +204,7 @@ int main ( int argc , char *argv[ ] )
             }
             std::cout << "------------MATRIX 2------------\n";
             /*Check dei valori di una fetta*/
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < dim_x; i++)
             {
             for (int j = 0; j < dim_y; j++)
             {
@@ -201,7 +215,7 @@ int main ( int argc , char *argv[ ] )
             }
             std::cout << "------------MATRIX TRUE------------\n";
             /*Check dei valori di una fetta*/
-            for (int i = 20; i < dim_x_fake; i++)
+            for (int i = 0; i < dim_x_fake; i++)
             {
                 for (int j = 0; j < dim_y; j++)
                 {      
@@ -225,10 +239,73 @@ int main ( int argc , char *argv[ ] )
         
     }
     
+    double* buffer;
+    buffer = new double[dim_x_fake*dim_y_fake*dim_z_fake];
+
+    int count_sub = 0, b = 0;
+   
+    if (irank == 0)
+    {   
+        std::cout << "Buffer\n";
+        for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
+        {
+            for (int j_sub = 0; j_sub < dimensioni[0][1]; j_sub++)
+            {
+                for (int i_sub = 0; i_sub < dimensioni[0][0]; i_sub++)
+                {
+                    for (int i = i_sub*dim_x_sub; i < dim_x_sub*(i_sub+1); i++)
+                    {
+                        for (int j = j_sub*dim_y_sub; j < dim_y_sub*(j_sub+1); j++)
+                        {
+                            for (int k = k_sub*dim_z_sub; k < dim_z_sub*(k_sub+1); k++)   
+                            {
+                            //b = i+dim_y_sub*(j+dim_z_sub*k);
+                            count_sub = i_sub+(dim_y_sub)*(j_sub+dim_z_sub*k_sub);
+                            b = (i-i_sub*dim_x_sub)*dim_y_sub + j-j_sub*dim_y_sub;
+                            buffer[b+volume*count_sub] = matrix1[i][j][k];
+                            //std:: cout << "i " << i << " j  " << j << " k  " << k_sub <<std::endl;
+                            //std:: cout << "i_sub " << i_sub << " j_sub  " << j_sub << " k_sub  " << k_sub <<std::endl;
+                            std:: cout << "b " << b << "  count_sub  " << count_sub << std::endl;
+                            }
+                        }
+                    }
+                std::cout << std::endl;
+                }
+            }
+        }
+    std::cout << "BUFFER" << std::endl;
+    for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
+    {
+        std::cout << buffer[i] << " ";
+    }
+    std::cout << std::endl;
+    }
+
+
+    
+    
+    double* sub_buffer;
+    sub_buffer =  new double[dim_x_sub*dim_y_sub*dim_z_sub];
+
     start_time = MPI_Wtime();
 
-    MPI_Scatter(&matrix1_fake, volume, MPI_DOUBLE, &sub_matrix1, volume, MPI_DOUBLE, 0, OneD_com);
-    MPI_Scatter(&matrix2_fake, volume, MPI_DOUBLE, &sub_matrix2, volume, MPI_DOUBLE, 0, OneD_com);
+    MPI_Scatter(buffer, volume, MPI_DOUBLE, sub_buffer, volume, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+  // MPI_Scatter(&matrix2_fake, volume, MPI_DOUBLE, &sub_matrix2, volume, MPI_DOUBLE, 0, OneD_com);
+   for (int i = 0; i < n_proc; i++)
+        {
+            if (irank == i)
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(i*10));
+                std::cout << "I am " << irank << " and my values are\n";
+
+                for (int j = 0; j < dim_x_sub*dim_y_sub*dim_z_sub; j++)
+                {
+                    std::cout << sub_buffer[j] << "  ";
+                    //sub_buffer[j]+=1;
+                }
+                std::cout << std::endl;
+            }
+        }
 
     if (check == 1)
     {
@@ -264,7 +341,7 @@ int main ( int argc , char *argv[ ] )
         }
     }
 
-    /*Eseguiamo la somma*/
+    /*Eseguiamo la somma
     for (int i = 0; i < dim_x_sub; i++)
         {
             for (int j = 0; j < dim_y_sub; j++)
@@ -274,10 +351,19 @@ int main ( int argc , char *argv[ ] )
                     sub_matrix3[i][j][k] = sub_matrix1[i][j][k]+sub_matrix2[i][j][k];
                 }
             }
+        }*/
+
+    MPI_Gather(sub_buffer, volume, MPI_DOUBLE, buffer, volume, MPI_DOUBLE, 0, OneD_com);
+
+    if (irank == 0)
+    {
+        std::cout << "Buffer\n";
+        for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
+        {
+            std:: cout << buffer[i] << " ";
         }
-
-    MPI_Gather(&sub_matrix3, volume, MPI_DOUBLE, &matrix3_fake, volume, MPI_DOUBLE, 0, OneD_com);
-
+        std::cout << std::endl;
+    }
     end_time = MPI_Wtime();
 
     if (irank == master)
@@ -331,6 +417,19 @@ int main ( int argc , char *argv[ ] )
         }
     }
 
+    matrix_del(dim_x, dim_y, matrix1);
+    matrix_del(dim_x, dim_y, matrix2);
+    matrix_del(dim_x, dim_y, matrix3);
+    matrix_del(dim_x, dim_y, matrix_true);
+
+    matrix_del(dim_x_fake, dim_y_fake, matrix1_fake);
+    matrix_del(dim_x_fake, dim_y_fake, matrix2_fake);
+    matrix_del(dim_x_fake, dim_y_fake, matrix3_fake);
+
+    matrix_del(dim_x_sub, dim_y_sub, sub_matrix1);
+    matrix_del(dim_x_sub, dim_y_sub, sub_matrix2);
+    matrix_del(dim_x_sub, dim_y_sub, sub_matrix3);
+
     MPI_Finalize() ;
 }
 
@@ -338,4 +437,30 @@ double d_gen(double Min_val, double Max_val)
 {
     double f = (double)rand() / RAND_MAX;
     return Min_val + f*(Max_val - Min_val);
+}
+
+void matrix_all(int x, int y, int z, double***& matrix) {
+
+    matrix = new double**[x];
+    for (int i = 0; i < x; i++)
+        {
+            matrix[i] = new double*[y];
+            for (int j = 0; j < y; j++)
+            {
+                matrix[i][j] =  new double [z];
+            }
+        }
+}
+
+void matrix_del(int x, int y, double***& matrix) {
+
+    for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                delete[] matrix[i][j];
+            }
+            delete [] matrix[i]; 
+        }
+    delete[] matrix;
 }
