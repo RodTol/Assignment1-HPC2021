@@ -46,7 +46,7 @@ int main ( int argc , char *argv[ ] )
     dim_z_fake = atoi(argv[3]);
 
     int dimensioni[39][3] = {
-        {8, 1, 1} , //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        {24, 1, 1} , //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     /*2-dimension*/
         {2, 12, 1} ,
         {3, 8, 1} ,
@@ -215,7 +215,7 @@ int main ( int argc , char *argv[ ] )
             }
             std::cout << "------------MATRIX TRUE------------\n";
             /*Check dei valori di una fetta*/
-            for (int i = 0; i < dim_x_fake; i++)
+            for (int i = 0; i < dim_x; i++)
             {
                 for (int j = 0; j < dim_y; j++)
                 {      
@@ -223,7 +223,6 @@ int main ( int argc , char *argv[ ] )
                 }
                 std::cout << "\n";
             }
-            std::cout << std::endl;
 
             std::cout << "RIGHE EXTRA MATRICE FAKE \n";
             for (int i = dim_x; i < dim_x_fake; i++)
@@ -238,15 +237,17 @@ int main ( int argc , char *argv[ ] )
         }
         
     }
-    
-    double* buffer;
-    buffer = new double[dim_x_fake*dim_y_fake*dim_z_fake];
+
+    /*Versione vettoriale della matrice, creata secondo il paradigma*/    
+    double* buffer1, *buffer2 , *buffer3;
+    buffer1 = new double[dim_x_fake*dim_y_fake*dim_z_fake];
+    buffer2 = new double[dim_x_fake*dim_y_fake*dim_z_fake];
+    buffer3 = new double[dim_x_fake*dim_y_fake*dim_z_fake];
 
     int count_sub = 0, b = 0;
    
     if (irank == 0)
     {   
-        std::cout << "Buffer\n";
         for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
         {
             for (int j_sub = 0; j_sub < dimensioni[0][1]; j_sub++)
@@ -259,53 +260,50 @@ int main ( int argc , char *argv[ ] )
                         {
                             for (int k = k_sub*dim_z_sub; k < dim_z_sub*(k_sub+1); k++)   
                             {
-                            //b = i+dim_y_sub*(j+dim_z_sub*k);
                             count_sub = i_sub+(dim_y_sub)*(j_sub+dim_z_sub*k_sub);
-                            b = (i-i_sub*dim_x_sub)*dim_y_sub + j-j_sub*dim_y_sub;
-                            buffer[b+volume*count_sub] = matrix1[i][j][k];
+                            //b = (i-i_sub*dim_x_sub)*dim_y_sub + j-j_sub*dim_y_sub;
+                            //b = (j-j_sub*dim_y_sub)+dim_y_sub*((i-i_sub*dim_x_sub)+dim_z_sub*(k-k_sub*dim_z_sub));
+                            b = (k-k_sub*dim_z_sub)*dim_x_sub*dim_y_sub + (i-i_sub*dim_x_sub)*dim_y_sub +
+                                 (j-j_sub*dim_y_sub);
+                            buffer1[b+volume*count_sub] = matrix1_fake[i][j][k];
+                            buffer2[b+volume*count_sub] = matrix2_fake[i][j][k];
                             //std:: cout << "i " << i << " j  " << j << " k  " << k_sub <<std::endl;
                             //std:: cout << "i_sub " << i_sub << " j_sub  " << j_sub << " k_sub  " << k_sub <<std::endl;
-                            std:: cout << "b " << b << "  count_sub  " << count_sub << std::endl;
+                            //std:: cout << "b " << b << "  count_sub  " << count_sub << std::endl;
                             }
                         }
                     }
-                std::cout << std::endl;
                 }
             }
         }
-    std::cout << "BUFFER" << std::endl;
-    for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
-    {
-        std::cout << buffer[i] << " ";
-    }
-    std::cout << std::endl;
-    }
+        if (check == 1) {
+            std::cout << "BUFFER-1" << std::endl;
+            for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
+            {
+                std::cout << buffer1[i] << " ";
+            }
+            std::cout << std::endl;
 
-
+            std::cout << "BUFFER-2" << std::endl;
+            for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
+            {
+                std::cout << buffer2[i] << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
     
-    
-    double* sub_buffer;
-    sub_buffer =  new double[dim_x_sub*dim_y_sub*dim_z_sub];
+    /*Versione vettoriale della sottomatrice*/
+    double *sub_buffer1, *sub_buffer2, *sub_buffer3;
+    sub_buffer1 =  new double[dim_x_sub*dim_y_sub*dim_z_sub];
+    sub_buffer2 =  new double[dim_x_sub*dim_y_sub*dim_z_sub];
+    sub_buffer3 =  new double[dim_x_sub*dim_y_sub*dim_z_sub];
 
     start_time = MPI_Wtime();
 
-    MPI_Scatter(buffer, volume, MPI_DOUBLE, sub_buffer, volume, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-  // MPI_Scatter(&matrix2_fake, volume, MPI_DOUBLE, &sub_matrix2, volume, MPI_DOUBLE, 0, OneD_com);
-   for (int i = 0; i < n_proc; i++)
-        {
-            if (irank == i)
-            {
-                std::this_thread::sleep_for(std::chrono::milliseconds(i*10));
-                std::cout << "I am " << irank << " and my values are\n";
+    MPI_Scatter(buffer1, volume, MPI_DOUBLE, sub_buffer1, volume, MPI_DOUBLE, 0, OneD_com);
+    MPI_Scatter(buffer2, volume, MPI_DOUBLE, sub_buffer2, volume, MPI_DOUBLE, 0, OneD_com);
 
-                for (int j = 0; j < dim_x_sub*dim_y_sub*dim_z_sub; j++)
-                {
-                    std::cout << sub_buffer[j] << "  ";
-                    //sub_buffer[j]+=1;
-                }
-                std::cout << std::endl;
-            }
-        }
 
     if (check == 1)
     {
@@ -339,35 +337,72 @@ int main ( int argc , char *argv[ ] )
                 
             }
         }
+        for (int i = 0; i < n_proc; i++)
+        {
+            if (irank == i)
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(i*10));
+                std::cout << "I am " << irank << " and my values are\n";
+
+                for (int j = 0; j < dim_x_sub*dim_y_sub*dim_z_sub; j++)
+                {
+                    std::cout << sub_buffer1[j] << "  ";
+                }
+                std::cout << std::endl;
+            }
+        }
     }
 
-    /*Eseguiamo la somma
-    for (int i = 0; i < dim_x_sub; i++)
+    /*Eseguiamo la somma*/
+    for (int i = 0; i < dim_x_sub*dim_y_sub*dim_z_sub; i++)
         {
-            for (int j = 0; j < dim_y_sub; j++)
-            {
-                for (int k = 0; k < dim_z_sub; k++)
-                {
-                    sub_matrix3[i][j][k] = sub_matrix1[i][j][k]+sub_matrix2[i][j][k];
-                }
-            }
-        }*/
-
-    MPI_Gather(sub_buffer, volume, MPI_DOUBLE, buffer, volume, MPI_DOUBLE, 0, OneD_com);
-
-    if (irank == 0)
-    {
-        std::cout << "Buffer\n";
-        for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
-        {
-            std:: cout << buffer[i] << " ";
+          sub_buffer3[i] = sub_buffer1[i]+sub_buffer2[i];
         }
-        std::cout << std::endl;
+
+    MPI_Gather(sub_buffer3, volume, MPI_DOUBLE, buffer3, volume, MPI_DOUBLE, 0, OneD_com);
+
+    if (check == 1) {
+        if (irank == master)
+        {
+            std::cout << "Buffer-3\n";
+            for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
+            {
+                std:: cout << buffer3[i] << " ";
+            }
+            std::cout << std::endl;
+        }
     }
     end_time = MPI_Wtime();
 
     if (irank == master)
     {
+        /*Assegno i valori alla matrice di dimensioni corrette dal buffer*/
+        for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
+        {
+            for (int j_sub = 0; j_sub < dimensioni[0][1]; j_sub++)
+            {
+                for (int i_sub = 0; i_sub < dimensioni[0][0]; i_sub++)
+                {
+                    for (int i = i_sub*dim_x_sub; i < dim_x_sub*(i_sub+1); i++)
+                    {
+                        for (int j = j_sub*dim_y_sub; j < dim_y_sub*(j_sub+1); j++)
+                        {
+                            for (int k = k_sub*dim_z_sub; k < dim_z_sub*(k_sub+1); k++)   
+                            {
+                            count_sub = i_sub+(dim_y_sub)*(j_sub+dim_z_sub*k_sub);
+                            b = (k-k_sub*dim_z_sub)*dim_x_sub*dim_y_sub + (i-i_sub*dim_x_sub)*dim_y_sub +
+                                 (j-j_sub*dim_y_sub);
+                            matrix3_fake[i][j][k] = buffer3[b+volume*count_sub];
+                            //std:: cout << "i " << i << " j  " << j << " k  " << k_sub <<std::endl;
+                            //std:: cout << "i_sub " << i_sub << " j_sub  " << j_sub << " k_sub  " << k_sub <<std::endl;
+                            //std:: cout << "b " << b << "  count_sub  " << count_sub << std::endl;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         /*Assegno i valori alla matrice di dimensioni corrette*/
         for (int i = 0; i < dim_x; i++)
         {
