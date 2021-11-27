@@ -15,6 +15,8 @@ void matrix_all(int x, int y, int z, double***& matrix);
 
 void matrix_del(int x, int y, double***& matrix);
 
+void matrix_to_buffer (double*** matrix, double*& buffer, int dim_x_sub, int dim_y_sub, int dim_z_sub, int dimensioni[32][3], int paradigma);
+void buffer_to_matrix (double***& matrix, double* buffer, int dim_x_sub, int dim_y_sub, int dim_z_sub, int dimensioni[32][3], int paradigma);
 
 int main ( int argc , char *argv[ ] )
 {
@@ -248,7 +250,10 @@ int main ( int argc , char *argv[ ] )
    
     if (irank == 0)
     {   
-        for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
+        matrix_to_buffer(matrix1_fake, buffer1, dim_x_sub, dim_y_sub, dim_z_sub, dimensioni, 0);
+        matrix_to_buffer(matrix2_fake, buffer2, dim_x_sub, dim_y_sub, dim_z_sub, dimensioni, 0);
+
+        /*for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
         {
             for (int j_sub = 0; j_sub < dimensioni[0][1]; j_sub++)
             {
@@ -275,7 +280,8 @@ int main ( int argc , char *argv[ ] )
                     }
                 }
             }
-        }
+        }*/
+
         if (check == 1) {
             std::cout << "BUFFER-1" << std::endl;
             for (int i = 0; i < dim_x_fake*dim_y_fake*dim_z_fake; i++)
@@ -377,7 +383,9 @@ int main ( int argc , char *argv[ ] )
     if (irank == master)
     {
         /*Assegno i valori alla matrice di dimensioni corrette dal buffer*/
-        for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
+        buffer_to_matrix(matrix3_fake, buffer3, dim_x_sub, dim_y_sub, dim_z_sub, dimensioni, 0);
+        
+        /*for (int k_sub = 0; k_sub < dimensioni[0][2]; k_sub++)
         {
             for (int j_sub = 0; j_sub < dimensioni[0][1]; j_sub++)
             {
@@ -401,7 +409,7 @@ int main ( int argc , char *argv[ ] )
                     }
                 }
             }
-        }
+        }*/
 
         /*Assegno i valori alla matrice di dimensioni corrette*/
         for (int i = 0; i < dim_x; i++)
@@ -498,4 +506,60 @@ void matrix_del(int x, int y, double***& matrix) {
             delete [] matrix[i]; 
         }
     delete[] matrix;
+}
+
+void matrix_to_buffer (double*** matrix, double*& buffer, int dim_x_sub, int dim_y_sub, int dim_z_sub, int dimensioni[32][3], int paradigma) {
+ int b;
+ int count_sub;
+ int volume = dim_x_sub*dim_y_sub*dim_z_sub;
+    for (int k_sub = 0; k_sub < dimensioni[paradigma][2]; k_sub++)
+    {
+        for (int j_sub = 0; j_sub < dimensioni[paradigma][1]; j_sub++)
+        {
+            for (int i_sub = 0; i_sub < dimensioni[paradigma][0]; i_sub++)
+            {
+                for (int i = i_sub*dim_x_sub; i < dim_x_sub*(i_sub+1); i++)
+                {
+                    for (int j = j_sub*dim_y_sub; j < dim_y_sub*(j_sub+1); j++)
+                    {
+                        for (int k = k_sub*dim_z_sub; k < dim_z_sub*(k_sub+1); k++)   
+                        {
+                        count_sub = i_sub+(dim_y_sub)*(j_sub+dim_z_sub*k_sub);
+                        b = (k-k_sub*dim_z_sub)*dim_x_sub*dim_y_sub + (i-i_sub*dim_x_sub)*dim_y_sub +
+                                (j-j_sub*dim_y_sub);
+                        buffer[b+volume*count_sub] = matrix[i][j][k];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void buffer_to_matrix (double***& matrix, double* buffer, int dim_x_sub, int dim_y_sub, int dim_z_sub, int dimensioni[32][3], int paradigma) {
+ int b;
+ int count_sub;
+ int volume = dim_x_sub*dim_y_sub*dim_z_sub;
+    for (int k_sub = 0; k_sub < dimensioni[paradigma][2]; k_sub++)
+    {
+        for (int j_sub = 0; j_sub < dimensioni[paradigma][1]; j_sub++)
+        {
+            for (int i_sub = 0; i_sub < dimensioni[paradigma][0]; i_sub++)
+            {
+                for (int i = i_sub*dim_x_sub; i < dim_x_sub*(i_sub+1); i++)
+                {
+                    for (int j = j_sub*dim_y_sub; j < dim_y_sub*(j_sub+1); j++)
+                    {
+                        for (int k = k_sub*dim_z_sub; k < dim_z_sub*(k_sub+1); k++)   
+                        {
+                        count_sub = i_sub+(dim_y_sub)*(j_sub+dim_z_sub*k_sub);
+                        b = (k-k_sub*dim_z_sub)*dim_x_sub*dim_y_sub + (i-i_sub*dim_x_sub)*dim_y_sub +
+                                (j-j_sub*dim_y_sub);
+                        matrix[i][j][k] = buffer[b+volume*count_sub];
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
