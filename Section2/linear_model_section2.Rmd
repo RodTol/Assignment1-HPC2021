@@ -1,0 +1,55 @@
+---
+title: "Assignment hpc"
+author: "Giulia Bernardi"
+date: "2/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Linear model by core infiniband
+
+```{r}
+time = c(0.2,0.23,0.22,0.2,0.2,0.2,0.24,0.24,0.32,0.34,0.4,0.49,0.75,1.13,1.87,2.95,4.73,8.06,14.45,12.65,22.34,50.87,138.46,298.74)
+bytes = c(0,1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304)
+
+time <- time * 10**-6
+df <- data.frame(time, bytes)
+df
+```
+
+```{r}
+lm1 <- lm(time ~ bytes,data=df)
+summary(lm1)
+```
+
+```{r}
+(lm1$coefficients[2]**-1)*10**-6   #giga
+
+```
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+df2 <- df %>% slice(1:8)
+lm2 <- lm(time ~ bytes,data=df2)
+summary(lm2)
+```
+
+
+```{r}
+df3 <- df %>% slice(19:24)
+lm3 <- lm(time ~ bytes,data=df3)
+summary(lm3)
+```
+
+
+```{r}
+(lm3$coefficients[2]**-1)*10**-6  #giga
+```
+
+
