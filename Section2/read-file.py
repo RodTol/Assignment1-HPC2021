@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 lines = []
 times = []
 print('Tempi')
@@ -11,15 +12,19 @@ opzioni = ['by-core-infiniband', 'by-socket-infiniband',
         'by-node-ethernet']
 
 i=0
-k=0
+for k in opzioni :
+    f = open("{}.txt".format(k), "w")
+    for line in lines[i:len(lines)]:
+        i = i+1
+        if  '       #bytes #repetitions      t[usec]   Mbytes/sec' in line:
+            for j in range(0,25): 
+                f.write(lines[i+j])
+            f.close()        
+            break
+    df = pd.read_fwf('{}.txt'.format(k))
+    df.to_csv('{}.csv'.format(k), index = None)
+    continue
+    
 
-f = open("{}.csv".format(opzioni[k]), "w")
-for line in lines:
-    i+=1
-    if  '       #bytes #repetitions      t[usec]   Mbytes/sec' in line:
-        for j in range(0,25): 
-            f.write(lines[i-1+j])
-        f.close()
-        k+=1
     
 

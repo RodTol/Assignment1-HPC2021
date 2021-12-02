@@ -10,18 +10,18 @@ module load   likwid/5.1.0
 make
 
 echo "executing run by core infiniband"
-mpirun -np 2 --map-by core  --report-bindings ./IMB-MPI1 PingPong
+mpirun -np 2 --map-by core  --report-bindings ./IMB-MPI1 PingPong -msglog 29
 echo "executing run by socket infiniband"
-mpirun -np 2 --map-by socket  --report-bindings ./IMB-MPI1 PingPong
+mpirun -np 2 --map-by socket  --report-bindings ./IMB-MPI1 PingPong -msglog 29
 echo "executing run by node infiniband"
-mpirun -np 2 --map-by node --report-bindings ./IMB-MPI1 PingPong
+mpirun -np 2 --map-by node --report-bindings ./IMB-MPI1 PingPong -msglog 29
 echo "Ethernet da qui in poi"
 echo "executing run by core ethernet"
-mpirun -np 2 --mca pml ob1 --report-bindings  --map-by core --mca btl tcp,self ./IMB-MPI1 PingPong 
+mpirun -np 2 --mca pml ob1 --report-bindings  --map-by core --mca btl tcp,self ./IMB-MPI1 PingPong -msglog 29
 echo "executing run by socket ethernet"
-mpirun -np 2 --mca pml ob1 --report-bindings  --map-by socket --mca btl tcp,self ./IMB-MPI1 PingPong
+mpirun -np 2 --mca pml ob1 --report-bindings  --map-by socket --mca btl tcp,self ./IMB-MPI1 PingPong -msglog 29
 echo "executing run by node ethernet"
-mpirun -np 2 --mca pml ob1 --report-bindings  --map-by node --mca btl tcp,self ./IMB-MPI1 PingPong 
+mpirun -np 2 --mca pml ob1 --report-bindings  --map-by node --mca btl tcp,self ./IMB-MPI1 PingPong -msglog 29
 
 make clean
 
