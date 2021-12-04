@@ -1,0 +1,45 @@
+loading dependency gnu/9.3.0
+loading dependency numactl/2.0.13
+loading dependency hwloc/2.2.0
+[ct1pt-tnode007:07398] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode007:07398] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././././././.][./././././././././././.]
+[ct1pt-tnode007][[2880,1],1][btl_openib_component.c:1704:init_one_device] error obtaining device attributes for mlx5_0 errno says Protocol not supported
+[ct1pt-tnode007][[2880,1],0][btl_openib_component.c:1704:init_one_device] error obtaining device attributes for mlx5_0 errno says Protocol not supported
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode007
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode007:07398] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode007:07398] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ct1pt-tnode007:07422] MCW rank 0 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]], socket 0[core 3[hwt 0]], socket 0[core 4[hwt 0]], socket 0[core 5[hwt 0]], socket 0[core 6[hwt 0]], socket 0[core 7[hwt 0]], socket 0[core 8[hwt 0]], socket 0[core 9[hwt 0]], socket 0[core 10[hwt 0]], socket 0[core 11[hwt 0]]: [B/B/B/B/B/B/B/B/B/B/B/B][./././././././././././.]
+[ct1pt-tnode007:07422] MCW rank 1 bound to socket 1[core 12[hwt 0]], socket 1[core 13[hwt 0]], socket 1[core 14[hwt 0]], socket 1[core 15[hwt 0]], socket 1[core 16[hwt 0]], socket 1[core 17[hwt 0]], socket 1[core 18[hwt 0]], socket 1[core 19[hwt 0]], socket 1[core 20[hwt 0]], socket 1[core 21[hwt 0]], socket 1[core 22[hwt 0]], socket 1[core 23[hwt 0]]: [./././././././././././.][B/B/B/B/B/B/B/B/B/B/B/B]
+[ct1pt-tnode007][[2904,1],1][btl_openib_component.c:1704:init_one_device] error obtaining device attributes for mlx5_0 errno says Protocol not supported
+[ct1pt-tnode007][[2904,1],0][btl_openib_component.c:1704:init_one_device] error obtaining device attributes for mlx5_0 errno says Protocol not supported
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode007
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode007:07422] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode007:07422] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ct1pt-tnode007:07444] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode009:17253] MCW rank 1 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode007][[2738,1],0][btl_openib_component.c:1704:init_one_device] error obtaining device attributes for mlx5_0 errno says Protocol not supported
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode007
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009][[2738,1],1][btl_openib_component.c:1704:init_one_device] error obtaining device attributes for mlx5_0 errno says Protocol not supported
+[ct1pt-tnode007:07444] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode007:07444] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ct1pt-tnode007:07459] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode007:07459] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././././././.][./././././././././././.]
+[ct1pt-tnode007:07472] MCW rank 0 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]], socket 0[core 3[hwt 0]], socket 0[core 4[hwt 0]], socket 0[core 5[hwt 0]], socket 0[core 6[hwt 0]], socket 0[core 7[hwt 0]], socket 0[core 8[hwt 0]], socket 0[core 9[hwt 0]], socket 0[core 10[hwt 0]], socket 0[core 11[hwt 0]]: [B/B/B/B/B/B/B/B/B/B/B/B][./././././././././././.]
+[ct1pt-tnode007:07472] MCW rank 1 bound to socket 1[core 12[hwt 0]], socket 1[core 13[hwt 0]], socket 1[core 14[hwt 0]], socket 1[core 15[hwt 0]], socket 1[core 16[hwt 0]], socket 1[core 17[hwt 0]], socket 1[core 18[hwt 0]], socket 1[core 19[hwt 0]], socket 1[core 20[hwt 0]], socket 1[core 21[hwt 0]], socket 1[core 22[hwt 0]], socket 1[core 23[hwt 0]]: [./././././././././././.][B/B/B/B/B/B/B/B/B/B/B/B]
+[ct1pt-tnode007:07486] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode009:17280] MCW rank 1 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
