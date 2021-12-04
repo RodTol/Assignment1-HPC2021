@@ -7,6 +7,7 @@ cd /u/dssc/tolloi/Intel-benchmarks/src_c
 module load   openmpi/4.0.3/gnu/9.3.0
 module load   likwid/5.1.0
 
+make clean
 make
 
 echo "executing run by core infiniband"
