@@ -17,8 +17,8 @@ f.close
 
 opzioni = ['mpi-by-core-infiniband', 'mpi-by-socket-infiniband',
         'mpi-by-node-infiniband', 'mpi-by-core-ethernet', 'mpi-by-socket-ethernet',
-        'mpi-by-node-ethernet']
-        #,'intel-by-core-infiniband', 'intel-by-socket-infiniband','intel-by-node-infiniband'
+        'mpi-by-node-ethernet', 'intel-by-core-infiniband', 'intel-by-socket-infiniband',
+        'intel-by-node-infiniband']
         #, 'intel-by-core-ethernet', 'intel-by-socket-ethernet','intel-by-node-ethernet'
 
 i=0
@@ -43,13 +43,19 @@ lamb = [0.2001,
         0.9873,
         4.879,
         7.536,
-        15.30]
+        15.30,
+        0.2,
+        0.2,
+        0.2]
 b = [6425.844,
     5645.615,
     12053.12,
     5331.776404,
     3345.158,
-    2520.641]
+    2520.641,
+    1,
+    1,
+    1]
 
 ind = 0
 for k in opzioni :   

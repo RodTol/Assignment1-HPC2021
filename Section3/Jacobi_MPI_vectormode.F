@@ -103,6 +103,9 @@ C
 C     
       call MPI_Cart_coords(GRID_COMM_WORLD, myid_grid,3,
      $             my_coords,ierr)
+
+C     Adatto le dimensioni se non sono divisibile aggiungendo uno e
+C     riprovando a dividere
       do i=1,n_dim
          loca_dim(i) = spat_dim(i) / proc_dim(i)
          if(my_coords(i) < mod(spat_dim(i),proc_dim(i))) then
@@ -114,6 +117,7 @@ C
       jStart = 0
       kStart = 0
 
+C     Aggiungo uno perche ho un halo layer su ogni dimensione
       iEnd   = loca_dim(3)+1
       jEnd   = loca_dim(2)+1
       kEnd   = loca_dim(1)+1
@@ -128,6 +132,8 @@ C     Allocate fieldB including 1 boundary layer
 C
       allocate(fieldB(iStart:iEnd ,jStart:jEnd,kStart:kEnd ))
 
+C     Calcolo la dimensione in MB di ciò che ho allocato
+C     per ogni processore
       if(myid.eq.0) then
          tmp = 1.d0
          do i=1,n_dim
@@ -189,6 +195,7 @@ C
 
       character*20 filename
 
+C     Calcola la dimensione del buffer e di sendmsg e recvmsg
       call InitBufferDims(1,loca_dim(1),1,loca_dim(2),1,loca_dim(3)
      $     ,totmsgsize,sendmsg,recvmsg,MaxBufLen)
 

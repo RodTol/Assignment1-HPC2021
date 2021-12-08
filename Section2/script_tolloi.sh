@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q dssc
 #PBS -l walltime=1:00:00
-#PBS -l nodes=ct1pt-tnode007:ppn=2 -l nodes=ct1pt-tnode009:ppn=2
+#PBS -l nodes=ct1pt-tnode007:ppn=2+ct1pt-tnode009:ppn=2
 
 cd /u/dssc/tolloi/Intel-benchmarks/src_c
 module load   openmpi/4.0.3/gnu/9.3.0
