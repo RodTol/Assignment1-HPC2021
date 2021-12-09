@@ -11,6 +11,8 @@
 
 double d_gen(double Min_val, double Max_val);
 
+void adapt_to_resto(int dim, int &dim_sub, int &dim_fake, int n);
+
 void matrix_all(int x, int y, int z, double***& matrix);
 
 void matrix_del(int x, int y, double***& matrix);
@@ -112,43 +114,16 @@ int main ( int argc , char *argv[ ] )
     dim_y_sub = dim_y/dimensioni[0][1];
     dim_z_sub = dim_z/dimensioni[0][2];
 
-    resto_x = dim_x - dimensioni[0][0]*dim_x_sub;
-    resto_y = dim_y - dimensioni[0][1]*dim_y_sub;
-    resto_z = dim_z - dimensioni[0][2]*dim_z_sub;
-
     if (irank == master)
     {
         std::cout << "Dimensioni sub matrix " << dim_x_sub << " " << dim_y_sub << " " << dim_z_sub << std::endl;
         std::cout << "Resto x " << resto_x << "  Resto y " << resto_y << "  Resto z " << resto_z << std::endl;
     }
 
-    if (resto_x !=0)
-    {
-        /*Dimensioni della matrice espansa*/
-        dim_x_fake = dim_x + dimensioni[0][0] - resto_x ; 
-        /*Dimensioni delle sub_matrix che dividono a resto 0
-        le matrici fake*/
-        dim_x_sub = dim_x_fake/dimensioni[0][0];
-    }
+    adapt_to_resto(dim_x, dim_x_sub, dim_x_fake, dimensioni[0][0]);
+    adapt_to_resto(dim_y, dim_y_sub, dim_y_fake, dimensioni[0][1]);
+    adapt_to_resto(dim_z, dim_z_sub, dim_z_fake, dimensioni[0][2]);
 
-    if (resto_y !=0)
-    {
-        /*Dimensioni della matrice espansa*/
-        dim_y_fake = dim_y + dimensioni[0][1] - resto_y;  
-        /*Dimensioni delle sub_matrix che dividono a resto 0
-        le matrici fake*/
-        dim_y_sub = dim_y_fake/dimensioni[0][1];
-    }
-
-    if (resto_z !=0)
-    {
-        /*Dimensioni della matrice espansa*/
-        dim_z_fake = dim_z + dimensioni[0][2] - resto_z; 
-        /*Dimensioni delle sub_matrix che dividono a resto 0
-        le matrici fake*/
-        dim_z_sub = dim_z_fake/dimensioni[0][2];
-    }
-    
     /*Creiamo le nostre matrici modificate, che nel caso ogni
     resto sia nullo, avranno dimensione nulla.
     Di base il creator dovrebbe metterle uguali a 0*/
@@ -480,6 +455,18 @@ double d_gen(double Min_val, double Max_val)
 {
     double f = (double)rand() / RAND_MAX;
     return Min_val + f*(Max_val - Min_val);
+}
+
+void adapt_to_resto(int dim, int &dim_sub, int &dim_fake, int n) {
+    int resto = dim -n*dim_sub;
+    if (resto !=0)
+    {
+        /*Dimensioni della matrice espansa*/
+        dim_fake = dim + n - resto ; 
+        /*Dimensioni delle sub_matrix che dividono a resto 0
+        le matrici fake*/
+        dim_sub = dim_fake/n;
+    }
 }
 
 void matrix_all(int x, int y, int z, double***& matrix) {

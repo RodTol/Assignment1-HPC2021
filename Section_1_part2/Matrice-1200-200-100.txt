@@ -1,0 +1,78 @@
+Dimensioni sub matrix 100 100 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 1200 8 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 800 12 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 600 16 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 400 25 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 300 33 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 200 50 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 2400 4 100
+-------------------CASO 2D-----------------------
+Dimensioni sub matrix 100 100 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 1200 50 16
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 1200 16 50
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 400 50 50
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 1200 33 25
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 1200 25 33
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 800 50 25
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 800 25 50
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 600 50 33
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 600 33 50
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 100 4
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 4 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 100 100 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 50 8
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 8 50
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 1200 100 8
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 1200 8 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 200 100 50
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 200 50 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 33 12
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 12 33
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 800 100 12
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 800 12 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 300 100 33
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 300 33 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 25 16
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 2400 16 25
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 600 100 16
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 600 16 100
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 400 100 25
+-------------------CASO 3D-----------------------
+Dimensioni sub matrix 400 25 100
+Matrice 1200 200 100 

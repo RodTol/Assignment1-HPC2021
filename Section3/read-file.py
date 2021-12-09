@@ -41,8 +41,8 @@ for k in opzioni :
     #plt.figure()
 
     df = pd.read_csv('Grafici/{}.csv'.format(k), usecols=[0,1], names=['max', 'min'])
-
-    med= (df['max']+df['min'])/2
+    print(df)
+    med= ((df['max'])+(df['min']))/2
     medie.append(sum(med)/len(med))
 
     print(sum(med)/len(med))
