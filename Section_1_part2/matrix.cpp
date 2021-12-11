@@ -366,7 +366,7 @@ if (irank == master)
 }
     //  OCIO AL NUMERO DI CASI
     
-    for (int kallla= 1; kallla < 9; kallla++)
+    for (int kallla= 1; kallla < 3; kallla++)
     {
         int paradigm = kallla;
         if (irank == master)
@@ -474,17 +474,6 @@ if (irank == master)
                 for (int j = 0; j < dim_y; j++)
                 {
                     std::cout << matrix1[i][j][0] << "  ";
-                }
-                
-                    std::cout << "\n";
-                }
-                std::cout << "------------MATRIX 2------------\n";
-                /*Check dei valori di una fetta*/
-                for (int i = 0; i < 5; i++)
-                {
-                for (int j = 0; j < dim_y; j++)
-                {
-                    std::cout << matrix2[i][j][0] << "  ";
                 }
                 
                     std::cout << "\n";
