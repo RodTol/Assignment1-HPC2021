@@ -108,13 +108,13 @@ NUMA domains:		2
 Domain:			0
 Processors:		( 0 2 4 6 8 10 12 14 16 18 20 22 )
 Distances:		10 21
-Free memory:		198868 MB
-Total memory:		385436 MB
+Free memory:		383168 MB
+Total memory:		385428 MB
 --------------------------------------------------------------------------------
 Domain:			1
 Processors:		( 1 3 5 7 9 11 13 15 17 19 21 23 )
 Distances:		21 10
-Free memory:		254170 MB
+Free memory:		386026 MB
 Total memory:		387069 MB
 --------------------------------------------------------------------------------
 
@@ -152,6 +152,30 @@ Socket 1:
 | |                                                        19 MB                                                        | |
 | +---------------------------------------------------------------------------------------------------------------------+ |
 +-------------------------------------------------------------------------------------------------------------------------+
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
+ct1pt-tnode007.hpc
 ct1pt-tnode009.hpc
 ct1pt-tnode009.hpc
 ct1pt-tnode009.hpc
@@ -176,27 +200,3 @@ ct1pt-tnode009.hpc
 ct1pt-tnode009.hpc
 ct1pt-tnode009.hpc
 ct1pt-tnode009.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc
-ct1pt-tnode010.hpc

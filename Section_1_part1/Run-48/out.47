@@ -1,5 +1,5 @@
 I am process 0 and I have received 94 messages. My final messages have tag 0 and value -1081 , 1081
-The mean of time is :0.000114404
+The mean of time is :0.000119518
 I am process 1 and I have received 94 messages. My final messages have tag 10 and value -1081 , 1081
 I am process 2 and I have received 94 messages. My final messages have tag 20 and value -1081 , 1081
 I am process 3 and I have received 94 messages. My final messages have tag 30 and value -1081 , 1081

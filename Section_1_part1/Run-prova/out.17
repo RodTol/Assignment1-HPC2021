@@ -1,5 +1,5 @@
-I am process 1 and I have received 34 messages. My final messages have tag 10 and value -136 , 136
-I am process 2 and I have received 34 messages. My final messages have tag 20 and value -136 , 136
+I am process 0 and I have received 34 messages. My final messages have tag 0 and value -136 , 136
+The mean of time is :2.26671e-05
 I am process 3 and I have received 34 messages. My final messages have tag 30 and value -136 , 136
 I am process 4 and I have received 34 messages. My final messages have tag 40 and value -136 , 136
 I am process 5 and I have received 34 messages. My final messages have tag 50 and value -136 , 136
@@ -11,8 +11,8 @@ I am process 10 and I have received 34 messages. My final messages have tag 100 
 I am process 11 and I have received 34 messages. My final messages have tag 110 and value -136 , 136
 I am process 12 and I have received 34 messages. My final messages have tag 120 and value -136 , 136
 I am process 13 and I have received 34 messages. My final messages have tag 130 and value -136 , 136
-I am process 14 and I have received 34 messages. My final messages have tag 140 and value -136 , 136
 I am process 15 and I have received 34 messages. My final messages have tag 150 and value -136 , 136
 I am process 16 and I have received 34 messages. My final messages have tag 160 and value -136 , 136
-I am process 0 and I have received 34 messages. My final messages have tag 0 and value -136 , 136
-The mean of time is :2.71793e-05
+I am process 1 and I have received 34 messages. My final messages have tag 10 and value -136 , 136
+I am process 2 and I have received 34 messages. My final messages have tag 20 and value -136 , 136
+I am process 14 and I have received 34 messages. My final messages have tag 140 and value -136 , 136

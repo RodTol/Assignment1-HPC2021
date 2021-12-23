@@ -1,0 +1,78 @@
+Matrice 2400 100 100 
+0.247326
+Topologia 2  12 
+0.265261
+Topologia 3  8 
+0.255337
+Topologia 4  6 
+0.25086
+Topologia 6  4 
+0.250691
+Topologia 8  3 
+0.249651
+Topologia 12  2 
+0.242659
+Topologia 1  24 
+0.289477
+Topologia 24  1 
+0.245114
+Topologia 2  2 6
+0.24951
+Topologia 2  6 2
+0.249416
+Topologia 6  2 2
+0.24285
+Topologia 2  3 4
+0.249336
+Topologia 2  4 3
+0.247469
+Topologia 3  2 4
+0.241518
+Topologia 3  4 2
+0.24344
+Topologia 4  2 3
+0.247979
+Topologia 4  3 2
+0.248831
+Topologia 1  1 24
+0.289605
+Topologia 1  24 1
+0.289568
+Topologia 24  1 1
+0.243527
+Topologia 1  2 12
+0.264274
+Topologia 1  12 2
+0.26609
+Topologia 2  1 12
+0.264417
+Topologia 2  12 1
+0.266698
+Topologia 12  1 2
+0.242722
+Topologia 12  2 1
+0.242681
+Topologia 1  3 8
+0.259886
+Topologia 1  8 3
+0.25851
+Topologia 3  1 8
+0.25625
+Topologia 3  8 1
+0.256819
+Topologia 8  1 3
+0.251076
+Topologia 8  3 1
+0.247932
+Topologia 1  4 6
+0.24948
+Topologia 1  6 4
+0.247488
+Topologia 4  1 6
+0.247951
+Topologia 4  6 1
+0.248089
+Topologia 6  1 4
+0.243235
+Topologia 6  4 1
+0.244854

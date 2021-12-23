@@ -1,819 +1,702 @@
 Matrice 2400 100 100 
-Dimensioni sub matrix 100 100 100
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.232209
+Time of comunication+operation is :0.247326
 -------------------CASO 2D-----------------------
-Paradigma 2  12 1
-Dimensioni sub matrix 1200 8 100
+Topologia 2  12 
 Dimensioni fake 2400 108 100
-Dimensioni sub matrix 1200 9 100
+Nuove dimensioni sub matrix 1200 9 100
 Operation successful!
-Time of comunication+operation is :0.251719
+Time of comunication+operation is :0.265261
 -------------------CASO 2D-----------------------
-Paradigma 3  8 1
-Dimensioni sub matrix 800 12 100
+Topologia 3  8 
 Dimensioni fake 2400 104 100
-Dimensioni sub matrix 800 13 100
+Nuove dimensioni sub matrix 800 13 100
 Operation successful!
-Time of comunication+operation is :0.247355
+Time of comunication+operation is :0.255337
 -------------------CASO 2D-----------------------
-Paradigma 4  6 1
-Dimensioni sub matrix 600 16 100
+Topologia 4  6 
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 600 17 100
+Nuove dimensioni sub matrix 600 17 100
 Operation successful!
-Time of comunication+operation is :0.231407
+Time of comunication+operation is :0.25086
 -------------------CASO 2D-----------------------
-Paradigma 6  4 1
-Dimensioni sub matrix 400 25 100
+Topologia 6  4 
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 400 25 100
+Nuove dimensioni sub matrix 400 25 100
 Operation successful!
-Time of comunication+operation is :0.22389
+Time of comunication+operation is :0.250691
 -------------------CASO 2D-----------------------
-Paradigma 8  3 1
-Dimensioni sub matrix 300 33 100
+Topologia 8  3 
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 300 34 100
+Nuove dimensioni sub matrix 300 34 100
 Operation successful!
-Time of comunication+operation is :0.232576
+Time of comunication+operation is :0.249651
 -------------------CASO 2D-----------------------
-Paradigma 12  2 1
-Dimensioni sub matrix 200 50 100
+Topologia 12  2 
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 200 50 100
+Nuove dimensioni sub matrix 200 50 100
 Operation successful!
-Time of comunication+operation is :0.228385
+Time of comunication+operation is :0.242659
 -------------------CASO 2D-----------------------
-Paradigma 1  24 1
-Dimensioni sub matrix 2400 4 100
+Topologia 1  24 
 Dimensioni fake 2400 120 100
-Dimensioni sub matrix 2400 5 100
+Nuove dimensioni sub matrix 2400 5 100
 Operation successful!
-Time of comunication+operation is :0.277591
+Time of comunication+operation is :0.289477
 -------------------CASO 2D-----------------------
-Paradigma 24  1 1
-Dimensioni sub matrix 100 100 100
+Topologia 24  1 
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.227667
+Time of comunication+operation is :0.245114
 -------------------CASO 3D-----------------------
-Paradigma 2  2 6
-Dimensioni sub matrix 1200 50 16
+Topologia 2  2 6
 Dimensioni fake 2400 100 102
-Dimensioni sub matrix 1200 50 17
+Nuove dimensioni sub matrix 1200 50 17
 Operation successful!
-Time of comunication+operation is :0.239641
+Time of comunication+operation is :0.24951
 -------------------CASO 3D-----------------------
-Paradigma 2  6 2
-Dimensioni sub matrix 1200 16 50
+Topologia 2  6 2
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 1200 17 50
+Nuove dimensioni sub matrix 1200 17 50
 Operation successful!
-Time of comunication+operation is :0.232819
+Time of comunication+operation is :0.249416
 -------------------CASO 3D-----------------------
-Paradigma 6  2 2
-Dimensioni sub matrix 400 50 50
+Topologia 6  2 2
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 400 50 50
+Nuove dimensioni sub matrix 400 50 50
 Operation successful!
-Time of comunication+operation is :0.230941
+Time of comunication+operation is :0.24285
 -------------------CASO 3D-----------------------
-Paradigma 2  3 4
-Dimensioni sub matrix 1200 33 25
+Topologia 2  3 4
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 1200 34 25
+Nuove dimensioni sub matrix 1200 34 25
 Operation successful!
-Time of comunication+operation is :0.230969
+Time of comunication+operation is :0.249336
 -------------------CASO 3D-----------------------
-Paradigma 2  4 3
-Dimensioni sub matrix 1200 25 33
+Topologia 2  4 3
 Dimensioni fake 2400 100 102
-Dimensioni sub matrix 1200 25 34
+Nuove dimensioni sub matrix 1200 25 34
 Operation successful!
-Time of comunication+operation is :0.229152
+Time of comunication+operation is :0.247469
 -------------------CASO 3D-----------------------
-Paradigma 3  2 4
-Dimensioni sub matrix 800 50 25
+Topologia 3  2 4
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 800 50 25
+Nuove dimensioni sub matrix 800 50 25
 Operation successful!
-Time of comunication+operation is :0.22254
+Time of comunication+operation is :0.241518
 -------------------CASO 3D-----------------------
-Paradigma 3  4 2
-Dimensioni sub matrix 800 25 50
+Topologia 3  4 2
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 800 25 50
+Nuove dimensioni sub matrix 800 25 50
 Operation successful!
-Time of comunication+operation is :0.219962
+Time of comunication+operation is :0.24344
 -------------------CASO 3D-----------------------
-Paradigma 4  2 3
-Dimensioni sub matrix 600 50 33
+Topologia 4  2 3
 Dimensioni fake 2400 100 102
-Dimensioni sub matrix 600 50 34
+Nuove dimensioni sub matrix 600 50 34
 Operation successful!
-Time of comunication+operation is :0.235192
+Time of comunication+operation is :0.247979
 -------------------CASO 3D-----------------------
-Paradigma 4  3 2
-Dimensioni sub matrix 600 33 50
+Topologia 4  3 2
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 600 34 50
+Nuove dimensioni sub matrix 600 34 50
 Operation successful!
-Time of comunication+operation is :0.230821
+Time of comunication+operation is :0.248831
 -------------------CASO 3D-----------------------
-Paradigma 1  1 24
-Dimensioni sub matrix 2400 100 4
+Topologia 1  1 24
 Dimensioni fake 2400 100 120
-Dimensioni sub matrix 2400 100 5
+Nuove dimensioni sub matrix 2400 100 5
 Operation successful!
-Time of comunication+operation is :0.271351
+Time of comunication+operation is :0.289605
 -------------------CASO 3D-----------------------
-Paradigma 1  24 1
-Dimensioni sub matrix 2400 4 100
+Topologia 1  24 1
 Dimensioni fake 2400 120 100
-Dimensioni sub matrix 2400 5 100
+Nuove dimensioni sub matrix 2400 5 100
 Operation successful!
-Time of comunication+operation is :0.274067
+Time of comunication+operation is :0.289568
 -------------------CASO 3D-----------------------
-Paradigma 24  1 1
-Dimensioni sub matrix 100 100 100
+Topologia 24  1 1
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.224713
+Time of comunication+operation is :0.243527
 -------------------CASO 3D-----------------------
-Paradigma 1  2 12
-Dimensioni sub matrix 2400 50 8
+Topologia 1  2 12
 Dimensioni fake 2400 100 108
-Dimensioni sub matrix 2400 50 9
+Nuove dimensioni sub matrix 2400 50 9
 Operation successful!
-Time of comunication+operation is :0.253004
+Time of comunication+operation is :0.264274
 -------------------CASO 3D-----------------------
-Paradigma 1  12 2
-Dimensioni sub matrix 2400 8 50
+Topologia 1  12 2
 Dimensioni fake 2400 108 100
-Dimensioni sub matrix 2400 9 50
+Nuove dimensioni sub matrix 2400 9 50
 Operation successful!
-Time of comunication+operation is :0.255018
+Time of comunication+operation is :0.26609
 -------------------CASO 3D-----------------------
-Paradigma 2  1 12
-Dimensioni sub matrix 1200 100 8
+Topologia 2  1 12
 Dimensioni fake 2400 100 108
-Dimensioni sub matrix 1200 100 9
+Nuove dimensioni sub matrix 1200 100 9
 Operation successful!
-Time of comunication+operation is :0.293546
+Time of comunication+operation is :0.264417
 -------------------CASO 3D-----------------------
-Paradigma 2  12 1
-Dimensioni sub matrix 1200 8 100
+Topologia 2  12 1
 Dimensioni fake 2400 108 100
-Dimensioni sub matrix 1200 9 100
+Nuove dimensioni sub matrix 1200 9 100
 Operation successful!
-Time of comunication+operation is :0.255565
+Time of comunication+operation is :0.266698
 -------------------CASO 3D-----------------------
-Paradigma 12  1 2
-Dimensioni sub matrix 200 100 50
+Topologia 12  1 2
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 200 100 50
+Nuove dimensioni sub matrix 200 100 50
 Operation successful!
-Time of comunication+operation is :0.225647
+Time of comunication+operation is :0.242722
 -------------------CASO 3D-----------------------
-Paradigma 12  2 1
-Dimensioni sub matrix 200 50 100
+Topologia 12  2 1
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 200 50 100
+Nuove dimensioni sub matrix 200 50 100
 Operation successful!
-Time of comunication+operation is :0.222464
+Time of comunication+operation is :0.242681
 -------------------CASO 3D-----------------------
-Paradigma 1  3 8
-Dimensioni sub matrix 2400 33 12
+Topologia 1  3 8
 Dimensioni fake 2400 102 104
-Dimensioni sub matrix 2400 34 13
+Nuove dimensioni sub matrix 2400 34 13
 Operation successful!
-Time of comunication+operation is :0.250225
+Time of comunication+operation is :0.259886
 -------------------CASO 3D-----------------------
-Paradigma 1  8 3
-Dimensioni sub matrix 2400 12 33
+Topologia 1  8 3
 Dimensioni fake 2400 104 102
-Dimensioni sub matrix 2400 13 34
+Nuove dimensioni sub matrix 2400 13 34
 Operation successful!
-Time of comunication+operation is :0.238206
+Time of comunication+operation is :0.25851
 -------------------CASO 3D-----------------------
-Paradigma 3  1 8
-Dimensioni sub matrix 800 100 12
+Topologia 3  1 8
 Dimensioni fake 2400 100 104
-Dimensioni sub matrix 800 100 13
+Nuove dimensioni sub matrix 800 100 13
 Operation successful!
-Time of comunication+operation is :0.233446
+Time of comunication+operation is :0.25625
 -------------------CASO 3D-----------------------
-Paradigma 3  8 1
-Dimensioni sub matrix 800 12 100
+Topologia 3  8 1
 Dimensioni fake 2400 104 100
-Dimensioni sub matrix 800 13 100
+Nuove dimensioni sub matrix 800 13 100
 Operation successful!
-Time of comunication+operation is :0.228011
+Time of comunication+operation is :0.256819
 -------------------CASO 3D-----------------------
-Paradigma 8  1 3
-Dimensioni sub matrix 300 100 33
+Topologia 8  1 3
 Dimensioni fake 2400 100 102
-Dimensioni sub matrix 300 100 34
+Nuove dimensioni sub matrix 300 100 34
 Operation successful!
-Time of comunication+operation is :0.22495
+Time of comunication+operation is :0.251076
 -------------------CASO 3D-----------------------
-Paradigma 8  3 1
-Dimensioni sub matrix 300 33 100
+Topologia 8  3 1
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 300 34 100
+Nuove dimensioni sub matrix 300 34 100
 Operation successful!
-Time of comunication+operation is :0.223981
+Time of comunication+operation is :0.247932
 -------------------CASO 3D-----------------------
-Paradigma 1  4 6
-Dimensioni sub matrix 2400 25 16
+Topologia 1  4 6
 Dimensioni fake 2400 100 102
-Dimensioni sub matrix 2400 25 17
+Nuove dimensioni sub matrix 2400 25 17
 Operation successful!
-Time of comunication+operation is :0.234789
+Time of comunication+operation is :0.24948
 -------------------CASO 3D-----------------------
-Paradigma 1  6 4
-Dimensioni sub matrix 2400 16 25
+Topologia 1  6 4
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 2400 17 25
+Nuove dimensioni sub matrix 2400 17 25
 Operation successful!
-Time of comunication+operation is :0.227125
+Time of comunication+operation is :0.247488
 -------------------CASO 3D-----------------------
-Paradigma 4  1 6
-Dimensioni sub matrix 600 100 16
+Topologia 4  1 6
 Dimensioni fake 2400 100 102
-Dimensioni sub matrix 600 100 17
+Nuove dimensioni sub matrix 600 100 17
 Operation successful!
-Time of comunication+operation is :0.23077
+Time of comunication+operation is :0.247951
 -------------------CASO 3D-----------------------
-Paradigma 4  6 1
-Dimensioni sub matrix 600 16 100
+Topologia 4  6 1
 Dimensioni fake 2400 102 100
-Dimensioni sub matrix 600 17 100
+Nuove dimensioni sub matrix 600 17 100
 Operation successful!
-Time of comunication+operation is :0.227248
+Time of comunication+operation is :0.248089
 -------------------CASO 3D-----------------------
-Paradigma 6  1 4
-Dimensioni sub matrix 400 100 25
+Topologia 6  1 4
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 400 100 25
+Nuove dimensioni sub matrix 400 100 25
 Operation successful!
-Time of comunication+operation is :0.223099
+Time of comunication+operation is :0.243235
 -------------------CASO 3D-----------------------
-Paradigma 6  4 1
-Dimensioni sub matrix 400 25 100
+Topologia 6  4 1
 Dimensioni fake 2400 100 100
-Dimensioni sub matrix 400 25 100
+Nuove dimensioni sub matrix 400 25 100
 Operation successful!
-Time of comunication+operation is :0.220523
+Time of comunication+operation is :0.244854
 Matrice 1200 200 100 
-Dimensioni sub matrix 50 200 100
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 50 200 100
+Nuove dimensioni sub matrix 50 200 100
 Operation successful!
-Time of comunication+operation is :0.242295
+Time of comunication+operation is :0.244588
 -------------------CASO 2D-----------------------
-Paradigma 2  12 1
-Dimensioni sub matrix 600 16 100
+Topologia 2  12 
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 600 17 100
+Nuove dimensioni sub matrix 600 17 100
 Operation successful!
-Time of comunication+operation is :0.248738
+Time of comunication+operation is :0.254505
 -------------------CASO 2D-----------------------
-Paradigma 3  8 1
-Dimensioni sub matrix 400 25 100
+Topologia 3  8 
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 400 25 100
+Nuove dimensioni sub matrix 400 25 100
 Operation successful!
-Time of comunication+operation is :0.196116
+Time of comunication+operation is :0.205145
 -------------------CASO 2D-----------------------
-Paradigma 4  6 1
-Dimensioni sub matrix 300 33 100
+Topologia 4  6 
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 300 34 100
+Nuove dimensioni sub matrix 300 34 100
 Operation successful!
-Time of comunication+operation is :0.25613
+Time of comunication+operation is :0.262622
 -------------------CASO 2D-----------------------
-Paradigma 6  4 1
-Dimensioni sub matrix 200 50 100
+Topologia 6  4 
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 200 50 100
+Nuove dimensioni sub matrix 200 50 100
 Operation successful!
-Time of comunication+operation is :0.234439
+Time of comunication+operation is :0.246473
 -------------------CASO 2D-----------------------
-Paradigma 8  3 1
-Dimensioni sub matrix 150 66 100
+Topologia 8  3 
 Dimensioni fake 1200 201 100
-Dimensioni sub matrix 150 67 100
+Nuove dimensioni sub matrix 150 67 100
 Operation successful!
-Time of comunication+operation is :0.236566
+Time of comunication+operation is :0.248434
 -------------------CASO 2D-----------------------
-Paradigma 12  2 1
-Dimensioni sub matrix 100 100 100
+Topologia 12  2 
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.234146
+Time of comunication+operation is :0.250197
 -------------------CASO 2D-----------------------
-Paradigma 1  24 1
-Dimensioni sub matrix 1200 8 100
+Topologia 1  24 
 Dimensioni fake 1200 216 100
-Dimensioni sub matrix 1200 9 100
+Nuove dimensioni sub matrix 1200 9 100
 Operation successful!
-Time of comunication+operation is :0.250967
+Time of comunication+operation is :0.266846
 -------------------CASO 2D-----------------------
-Paradigma 24  1 1
-Dimensioni sub matrix 50 200 100
+Topologia 24  1 
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 50 200 100
+Nuove dimensioni sub matrix 50 200 100
 Operation successful!
-Time of comunication+operation is :0.228506
+Time of comunication+operation is :0.246135
 -------------------CASO 3D-----------------------
-Paradigma 2  2 6
-Dimensioni sub matrix 600 100 16
+Topologia 2  2 6
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 600 100 17
+Nuove dimensioni sub matrix 600 100 17
 Operation successful!
-Time of comunication+operation is :0.234907
+Time of comunication+operation is :0.252464
 -------------------CASO 3D-----------------------
-Paradigma 2  6 2
-Dimensioni sub matrix 600 33 50
+Topologia 2  6 2
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 600 34 50
+Nuove dimensioni sub matrix 600 34 50
 Operation successful!
-Time of comunication+operation is :0.237315
+Time of comunication+operation is :0.247831
 -------------------CASO 3D-----------------------
-Paradigma 6  2 2
-Dimensioni sub matrix 200 100 50
+Topologia 6  2 2
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 200 100 50
+Nuove dimensioni sub matrix 200 100 50
 Operation successful!
-Time of comunication+operation is :0.228463
+Time of comunication+operation is :0.24427
 -------------------CASO 3D-----------------------
-Paradigma 2  3 4
-Dimensioni sub matrix 600 66 25
+Topologia 2  3 4
 Dimensioni fake 1200 201 100
-Dimensioni sub matrix 600 67 25
+Nuove dimensioni sub matrix 600 67 25
 Operation successful!
-Time of comunication+operation is :0.23288
+Time of comunication+operation is :0.246845
 -------------------CASO 3D-----------------------
-Paradigma 2  4 3
-Dimensioni sub matrix 600 50 33
+Topologia 2  4 3
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 600 50 34
+Nuove dimensioni sub matrix 600 50 34
 Operation successful!
-Time of comunication+operation is :0.252861
+Time of comunication+operation is :0.249728
 -------------------CASO 3D-----------------------
-Paradigma 3  2 4
-Dimensioni sub matrix 400 100 25
+Topologia 3  2 4
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 400 100 25
+Nuove dimensioni sub matrix 400 100 25
 Operation successful!
-Time of comunication+operation is :0.229675
+Time of comunication+operation is :0.243408
 -------------------CASO 3D-----------------------
-Paradigma 3  4 2
-Dimensioni sub matrix 400 50 50
+Topologia 3  4 2
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 400 50 50
+Nuove dimensioni sub matrix 400 50 50
 Operation successful!
-Time of comunication+operation is :0.228023
+Time of comunication+operation is :0.246088
 -------------------CASO 3D-----------------------
-Paradigma 4  2 3
-Dimensioni sub matrix 300 100 33
+Topologia 4  2 3
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 300 100 34
+Nuove dimensioni sub matrix 300 100 34
 Operation successful!
-Time of comunication+operation is :0.235716
+Time of comunication+operation is :0.250072
 -------------------CASO 3D-----------------------
-Paradigma 4  3 2
-Dimensioni sub matrix 300 66 50
+Topologia 4  3 2
 Dimensioni fake 1200 201 100
-Dimensioni sub matrix 300 67 50
+Nuove dimensioni sub matrix 300 67 50
 Operation successful!
-Time of comunication+operation is :0.235193
+Time of comunication+operation is :0.24629
 -------------------CASO 3D-----------------------
-Paradigma 1  1 24
-Dimensioni sub matrix 1200 200 4
+Topologia 1  1 24
 Dimensioni fake 1200 200 120
-Dimensioni sub matrix 1200 200 5
+Nuove dimensioni sub matrix 1200 200 5
 Operation successful!
-Time of comunication+operation is :0.278185
+Time of comunication+operation is :0.290348
 -------------------CASO 3D-----------------------
-Paradigma 1  24 1
-Dimensioni sub matrix 1200 8 100
+Topologia 1  24 1
 Dimensioni fake 1200 216 100
-Dimensioni sub matrix 1200 9 100
+Nuove dimensioni sub matrix 1200 9 100
 Operation successful!
-Time of comunication+operation is :0.249934
+Time of comunication+operation is :0.263158
 -------------------CASO 3D-----------------------
-Paradigma 24  1 1
-Dimensioni sub matrix 50 200 100
+Topologia 24  1 1
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 50 200 100
+Nuove dimensioni sub matrix 50 200 100
 Operation successful!
-Time of comunication+operation is :0.221458
+Time of comunication+operation is :0.247007
 -------------------CASO 3D-----------------------
-Paradigma 1  2 12
-Dimensioni sub matrix 1200 100 8
+Topologia 1  2 12
 Dimensioni fake 1200 200 108
-Dimensioni sub matrix 1200 100 9
+Nuove dimensioni sub matrix 1200 100 9
 Operation successful!
-Time of comunication+operation is :0.244185
+Time of comunication+operation is :0.265064
 -------------------CASO 3D-----------------------
-Paradigma 1  12 2
-Dimensioni sub matrix 1200 16 50
+Topologia 1  12 2
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 1200 17 50
+Nuove dimensioni sub matrix 1200 17 50
 Operation successful!
-Time of comunication+operation is :0.240257
+Time of comunication+operation is :0.250475
 -------------------CASO 3D-----------------------
-Paradigma 2  1 12
-Dimensioni sub matrix 600 200 8
+Topologia 2  1 12
 Dimensioni fake 1200 200 108
-Dimensioni sub matrix 600 200 9
+Nuove dimensioni sub matrix 600 200 9
 Operation successful!
-Time of comunication+operation is :0.244958
+Time of comunication+operation is :0.265465
 -------------------CASO 3D-----------------------
-Paradigma 2  12 1
-Dimensioni sub matrix 600 16 100
+Topologia 2  12 1
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 600 17 100
+Nuove dimensioni sub matrix 600 17 100
 Operation successful!
-Time of comunication+operation is :0.231322
+Time of comunication+operation is :0.250768
 -------------------CASO 3D-----------------------
-Paradigma 12  1 2
-Dimensioni sub matrix 100 200 50
+Topologia 12  1 2
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 100 200 50
+Nuove dimensioni sub matrix 100 200 50
 Operation successful!
-Time of comunication+operation is :0.225768
+Time of comunication+operation is :0.243438
 -------------------CASO 3D-----------------------
-Paradigma 12  2 1
-Dimensioni sub matrix 100 100 100
+Topologia 12  2 1
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.225029
+Time of comunication+operation is :0.244001
 -------------------CASO 3D-----------------------
-Paradigma 1  3 8
-Dimensioni sub matrix 1200 66 12
+Topologia 1  3 8
 Dimensioni fake 1200 201 104
-Dimensioni sub matrix 1200 67 13
+Nuove dimensioni sub matrix 1200 67 13
 Operation successful!
-Time of comunication+operation is :0.250566
+Time of comunication+operation is :0.258751
 -------------------CASO 3D-----------------------
-Paradigma 1  8 3
-Dimensioni sub matrix 1200 25 33
+Topologia 1  8 3
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 1200 25 34
+Nuove dimensioni sub matrix 1200 25 34
 Operation successful!
-Time of comunication+operation is :0.23699
+Time of comunication+operation is :0.251261
 -------------------CASO 3D-----------------------
-Paradigma 3  1 8
-Dimensioni sub matrix 400 200 12
+Topologia 3  1 8
 Dimensioni fake 1200 200 104
-Dimensioni sub matrix 400 200 13
+Nuove dimensioni sub matrix 400 200 13
 Operation successful!
-Time of comunication+operation is :0.232677
+Time of comunication+operation is :0.255451
 -------------------CASO 3D-----------------------
-Paradigma 3  8 1
-Dimensioni sub matrix 400 25 100
+Topologia 3  8 1
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 400 25 100
+Nuove dimensioni sub matrix 400 25 100
 Operation successful!
-Time of comunication+operation is :0.223341
+Time of comunication+operation is :0.245498
 -------------------CASO 3D-----------------------
-Paradigma 8  1 3
-Dimensioni sub matrix 150 200 33
+Topologia 8  1 3
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 150 200 34
+Nuove dimensioni sub matrix 150 200 34
 Operation successful!
-Time of comunication+operation is :0.228341
+Time of comunication+operation is :0.250198
 -------------------CASO 3D-----------------------
-Paradigma 8  3 1
-Dimensioni sub matrix 150 66 100
+Topologia 8  3 1
 Dimensioni fake 1200 201 100
-Dimensioni sub matrix 150 67 100
+Nuove dimensioni sub matrix 150 67 100
 Operation successful!
-Time of comunication+operation is :0.221744
+Time of comunication+operation is :0.244274
 -------------------CASO 3D-----------------------
-Paradigma 1  4 6
-Dimensioni sub matrix 1200 50 16
+Topologia 1  4 6
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 1200 50 17
+Nuove dimensioni sub matrix 1200 50 17
 Operation successful!
-Time of comunication+operation is :0.225176
+Time of comunication+operation is :0.248939
 -------------------CASO 3D-----------------------
-Paradigma 1  6 4
-Dimensioni sub matrix 1200 33 25
+Topologia 1  6 4
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 1200 34 25
+Nuove dimensioni sub matrix 1200 34 25
 Operation successful!
-Time of comunication+operation is :0.223794
+Time of comunication+operation is :0.248799
 -------------------CASO 3D-----------------------
-Paradigma 4  1 6
-Dimensioni sub matrix 300 200 16
+Topologia 4  1 6
 Dimensioni fake 1200 200 102
-Dimensioni sub matrix 300 200 17
+Nuove dimensioni sub matrix 300 200 17
 Operation successful!
-Time of comunication+operation is :0.225075
+Time of comunication+operation is :0.248284
 -------------------CASO 3D-----------------------
-Paradigma 4  6 1
-Dimensioni sub matrix 300 33 100
+Topologia 4  6 1
 Dimensioni fake 1200 204 100
-Dimensioni sub matrix 300 34 100
+Nuove dimensioni sub matrix 300 34 100
 Operation successful!
-Time of comunication+operation is :0.224648
+Time of comunication+operation is :0.248849
 -------------------CASO 3D-----------------------
-Paradigma 6  1 4
-Dimensioni sub matrix 200 200 25
+Topologia 6  1 4
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 200 200 25
+Nuove dimensioni sub matrix 200 200 25
 Operation successful!
-Time of comunication+operation is :0.235134
+Time of comunication+operation is :0.24426
 -------------------CASO 3D-----------------------
-Paradigma 6  4 1
-Dimensioni sub matrix 200 50 100
+Topologia 6  4 1
 Dimensioni fake 1200 200 100
-Dimensioni sub matrix 200 50 100
+Nuove dimensioni sub matrix 200 50 100
 Operation successful!
-Time of comunication+operation is :0.222375
+Time of comunication+operation is :0.245364
 Matrice 800 300 100 
-Dimensioni sub matrix 33 300 100
 Dimensioni fake 816 300 100
-Dimensioni sub matrix 34 300 100
+Nuove dimensioni sub matrix 34 300 100
 Operation successful!
-Time of comunication+operation is :0.247067
+Time of comunication+operation is :0.249875
 -------------------CASO 2D-----------------------
-Paradigma 2  12 1
-Dimensioni sub matrix 400 25 100
+Topologia 2  12 
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 400 25 100
+Nuove dimensioni sub matrix 400 25 100
 Operation successful!
-Time of comunication+operation is :0.210934
+Time of comunication+operation is :0.216425
 -------------------CASO 2D-----------------------
-Paradigma 3  8 1
-Dimensioni sub matrix 266 37 100
+Topologia 3  8 
 Dimensioni fake 801 304 100
-Dimensioni sub matrix 267 38 100
+Nuove dimensioni sub matrix 267 38 100
 Operation successful!
-Time of comunication+operation is :0.171216
+Time of comunication+operation is :0.195329
 -------------------CASO 2D-----------------------
-Paradigma 4  6 1
-Dimensioni sub matrix 200 50 100
+Topologia 4  6 
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 200 50 100
+Nuove dimensioni sub matrix 200 50 100
 Operation successful!
-Time of comunication+operation is :0.218603
+Time of comunication+operation is :0.218093
 -------------------CASO 2D-----------------------
-Paradigma 6  4 1
-Dimensioni sub matrix 133 75 100
+Topologia 6  4 
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 134 75 100
+Nuove dimensioni sub matrix 134 75 100
 Operation successful!
-Time of comunication+operation is :0.16769
+Time of comunication+operation is :0.188003
 -------------------CASO 2D-----------------------
-Paradigma 8  3 1
-Dimensioni sub matrix 100 100 100
+Topologia 8  3 
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.156022
+Time of comunication+operation is :0.18712
 -------------------CASO 2D-----------------------
-Paradigma 12  2 1
-Dimensioni sub matrix 66 150 100
+Topologia 12  2 
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 67 150 100
+Nuove dimensioni sub matrix 67 150 100
 Operation successful!
-Time of comunication+operation is :0.161368
+Time of comunication+operation is :0.188009
 -------------------CASO 2D-----------------------
-Paradigma 1  24 1
-Dimensioni sub matrix 800 12 100
+Topologia 1  24 
 Dimensioni fake 800 312 100
-Dimensioni sub matrix 800 13 100
+Nuove dimensioni sub matrix 800 13 100
 Operation successful!
-Time of comunication+operation is :0.237269
+Time of comunication+operation is :0.256613
 -------------------CASO 2D-----------------------
-Paradigma 24  1 1
-Dimensioni sub matrix 33 300 100
+Topologia 24  1 
 Dimensioni fake 816 300 100
-Dimensioni sub matrix 34 300 100
+Nuove dimensioni sub matrix 34 300 100
 Operation successful!
-Time of comunication+operation is :0.200727
+Time of comunication+operation is :0.19734
 -------------------CASO 3D-----------------------
-Paradigma 2  2 6
-Dimensioni sub matrix 400 150 16
+Topologia 2  2 6
 Dimensioni fake 800 300 102
-Dimensioni sub matrix 400 150 17
+Nuove dimensioni sub matrix 400 150 17
 Operation successful!
-Time of comunication+operation is :0.21294
+Time of comunication+operation is :0.245548
 -------------------CASO 3D-----------------------
-Paradigma 2  6 2
-Dimensioni sub matrix 400 50 50
+Topologia 2  6 2
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 400 50 50
+Nuove dimensioni sub matrix 400 50 50
 Operation successful!
-Time of comunication+operation is :0.192546
+Time of comunication+operation is :0.215971
 -------------------CASO 3D-----------------------
-Paradigma 6  2 2
-Dimensioni sub matrix 133 150 50
+Topologia 6  2 2
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 134 150 50
+Nuove dimensioni sub matrix 134 150 50
 Operation successful!
-Time of comunication+operation is :0.166837
+Time of comunication+operation is :0.188246
 -------------------CASO 3D-----------------------
-Paradigma 2  3 4
-Dimensioni sub matrix 400 100 25
+Topologia 2  3 4
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 400 100 25
+Nuove dimensioni sub matrix 400 100 25
 Operation successful!
-Time of comunication+operation is :0.153679
+Time of comunication+operation is :0.187403
 -------------------CASO 3D-----------------------
-Paradigma 2  4 3
-Dimensioni sub matrix 400 75 33
+Topologia 2  4 3
 Dimensioni fake 800 300 102
-Dimensioni sub matrix 400 75 34
+Nuove dimensioni sub matrix 400 75 34
 Operation successful!
-Time of comunication+operation is :0.163014
+Time of comunication+operation is :0.196478
 -------------------CASO 3D-----------------------
-Paradigma 3  2 4
-Dimensioni sub matrix 266 150 25
+Topologia 3  2 4
 Dimensioni fake 801 300 100
-Dimensioni sub matrix 267 150 25
+Nuove dimensioni sub matrix 267 150 25
 Operation successful!
-Time of comunication+operation is :0.18993
+Time of comunication+operation is :0.223188
 -------------------CASO 3D-----------------------
-Paradigma 3  4 2
-Dimensioni sub matrix 266 75 50
+Topologia 3  4 2
 Dimensioni fake 801 300 100
-Dimensioni sub matrix 267 75 50
+Nuove dimensioni sub matrix 267 75 50
 Operation successful!
-Time of comunication+operation is :0.154985
+Time of comunication+operation is :0.187695
 -------------------CASO 3D-----------------------
-Paradigma 4  2 3
-Dimensioni sub matrix 200 150 33
+Topologia 4  2 3
 Dimensioni fake 800 300 102
-Dimensioni sub matrix 200 150 34
+Nuove dimensioni sub matrix 200 150 34
 Operation successful!
-Time of comunication+operation is :0.176419
+Time of comunication+operation is :0.19608
 -------------------CASO 3D-----------------------
-Paradigma 4  3 2
-Dimensioni sub matrix 200 100 50
+Topologia 4  3 2
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 200 100 50
+Nuove dimensioni sub matrix 200 100 50
 Operation successful!
-Time of comunication+operation is :0.189719
+Time of comunication+operation is :0.215319
 -------------------CASO 3D-----------------------
-Paradigma 1  1 24
-Dimensioni sub matrix 800 300 4
+Topologia 1  1 24
 Dimensioni fake 800 300 120
-Dimensioni sub matrix 800 300 5
+Nuove dimensioni sub matrix 800 300 5
 Operation successful!
-Time of comunication+operation is :0.269019
+Time of comunication+operation is :0.289787
 -------------------CASO 3D-----------------------
-Paradigma 1  24 1
-Dimensioni sub matrix 800 12 100
+Topologia 1  24 1
 Dimensioni fake 800 312 100
-Dimensioni sub matrix 800 13 100
+Nuove dimensioni sub matrix 800 13 100
 Operation successful!
-Time of comunication+operation is :0.249755
+Time of comunication+operation is :0.255919
 -------------------CASO 3D-----------------------
-Paradigma 24  1 1
-Dimensioni sub matrix 33 300 100
+Topologia 24  1 1
 Dimensioni fake 816 300 100
-Dimensioni sub matrix 34 300 100
+Nuove dimensioni sub matrix 34 300 100
 Operation successful!
-Time of comunication+operation is :0.239089
+Time of comunication+operation is :0.249217
 -------------------CASO 3D-----------------------
-Paradigma 1  2 12
-Dimensioni sub matrix 800 150 8
+Topologia 1  2 12
 Dimensioni fake 800 300 108
-Dimensioni sub matrix 800 150 9
+Nuove dimensioni sub matrix 800 150 9
 Operation successful!
-Time of comunication+operation is :0.256676
+Time of comunication+operation is :0.267375
 -------------------CASO 3D-----------------------
-Paradigma 1  12 2
-Dimensioni sub matrix 800 25 50
+Topologia 1  12 2
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 800 25 50
+Nuove dimensioni sub matrix 800 25 50
 Operation successful!
-Time of comunication+operation is :0.193272
+Time of comunication+operation is :0.215113
 -------------------CASO 3D-----------------------
-Paradigma 2  1 12
-Dimensioni sub matrix 400 300 8
+Topologia 2  1 12
 Dimensioni fake 800 300 108
-Dimensioni sub matrix 400 300 9
+Nuove dimensioni sub matrix 400 300 9
 Operation successful!
-Time of comunication+operation is :0.226414
+Time of comunication+operation is :0.26533
 -------------------CASO 3D-----------------------
-Paradigma 2  12 1
-Dimensioni sub matrix 400 25 100
+Topologia 2  12 1
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 400 25 100
+Nuove dimensioni sub matrix 400 25 100
 Operation successful!
-Time of comunication+operation is :0.175551
+Time of comunication+operation is :0.214941
 -------------------CASO 3D-----------------------
-Paradigma 12  1 2
-Dimensioni sub matrix 66 300 50
+Topologia 12  1 2
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 67 300 50
+Nuove dimensioni sub matrix 67 300 50
 Operation successful!
-Time of comunication+operation is :0.155573
+Time of comunication+operation is :0.187374
 -------------------CASO 3D-----------------------
-Paradigma 12  2 1
-Dimensioni sub matrix 66 150 100
+Topologia 12  2 1
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 67 150 100
+Nuove dimensioni sub matrix 67 150 100
 Operation successful!
-Time of comunication+operation is :0.151974
+Time of comunication+operation is :0.187239
 -------------------CASO 3D-----------------------
-Paradigma 1  3 8
-Dimensioni sub matrix 800 100 12
+Topologia 1  3 8
 Dimensioni fake 800 300 104
-Dimensioni sub matrix 800 100 13
+Nuove dimensioni sub matrix 800 100 13
 Operation successful!
-Time of comunication+operation is :0.196362
+Time of comunication+operation is :0.244921
 -------------------CASO 3D-----------------------
-Paradigma 1  8 3
-Dimensioni sub matrix 800 37 33
+Topologia 1  8 3
 Dimensioni fake 800 304 102
-Dimensioni sub matrix 800 38 34
+Nuove dimensioni sub matrix 800 38 34
 Operation successful!
-Time of comunication+operation is :0.213615
+Time of comunication+operation is :0.258926
 -------------------CASO 3D-----------------------
-Paradigma 3  1 8
-Dimensioni sub matrix 266 300 12
+Topologia 3  1 8
 Dimensioni fake 801 300 104
-Dimensioni sub matrix 267 300 13
+Nuove dimensioni sub matrix 267 300 13
 Operation successful!
-Time of comunication+operation is :0.210272
+Time of comunication+operation is :0.253958
 -------------------CASO 3D-----------------------
-Paradigma 3  8 1
-Dimensioni sub matrix 266 37 100
+Topologia 3  8 1
 Dimensioni fake 801 304 100
-Dimensioni sub matrix 267 38 100
+Nuove dimensioni sub matrix 267 38 100
 Operation successful!
-Time of comunication+operation is :0.209288
+Time of comunication+operation is :0.245757
 -------------------CASO 3D-----------------------
-Paradigma 8  1 3
-Dimensioni sub matrix 100 300 33
+Topologia 8  1 3
 Dimensioni fake 800 300 102
-Dimensioni sub matrix 100 300 34
+Nuove dimensioni sub matrix 100 300 34
 Operation successful!
-Time of comunication+operation is :0.187642
+Time of comunication+operation is :0.245226
 -------------------CASO 3D-----------------------
-Paradigma 8  3 1
-Dimensioni sub matrix 100 100 100
+Topologia 8  3 1
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 100 100 100
+Nuove dimensioni sub matrix 100 100 100
 Operation successful!
-Time of comunication+operation is :0.179666
+Time of comunication+operation is :0.21544
 -------------------CASO 3D-----------------------
-Paradigma 1  4 6
-Dimensioni sub matrix 800 75 16
+Topologia 1  4 6
 Dimensioni fake 800 300 102
-Dimensioni sub matrix 800 75 17
+Nuove dimensioni sub matrix 800 75 17
 Operation successful!
-Time of comunication+operation is :0.159174
+Time of comunication+operation is :0.196187
 -------------------CASO 3D-----------------------
-Paradigma 1  6 4
-Dimensioni sub matrix 800 50 25
+Topologia 1  6 4
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 800 50 25
+Nuove dimensioni sub matrix 800 50 25
 Operation successful!
-Time of comunication+operation is :0.168476
+Time of comunication+operation is :0.215582
 -------------------CASO 3D-----------------------
-Paradigma 4  1 6
-Dimensioni sub matrix 200 300 16
+Topologia 4  1 6
 Dimensioni fake 800 300 102
-Dimensioni sub matrix 200 300 17
+Nuove dimensioni sub matrix 200 300 17
 Operation successful!
-Time of comunication+operation is :0.159923
+Time of comunication+operation is :0.196059
 -------------------CASO 3D-----------------------
-Paradigma 4  6 1
-Dimensioni sub matrix 200 50 100
+Topologia 4  6 1
 Dimensioni fake 800 300 100
-Dimensioni sub matrix 200 50 100
+Nuove dimensioni sub matrix 200 50 100
 Operation successful!
-Time of comunication+operation is :0.169118
+Time of comunication+operation is :0.215493
 -------------------CASO 3D-----------------------
-Paradigma 6  1 4
-Dimensioni sub matrix 133 300 25
+Topologia 6  1 4
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 134 300 25
+Nuove dimensioni sub matrix 134 300 25
 Operation successful!
-Time of comunication+operation is :0.153203
+Time of comunication+operation is :0.18732
 -------------------CASO 3D-----------------------
-Paradigma 6  4 1
-Dimensioni sub matrix 133 75 100
+Topologia 6  4 1
 Dimensioni fake 804 300 100
-Dimensioni sub matrix 134 75 100
+Nuove dimensioni sub matrix 134 75 100
 Operation successful!
-Time of comunication+operation is :0.147526
+Time of comunication+operation is :0.18737
 --------------------------------------------------------------------------------
 CPU name:	Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz
 CPU type:	Intel Skylake SP processor
@@ -877,13 +760,13 @@ NUMA domains:		2
 Domain:			0
 Processors:		( 0 2 4 6 8 10 12 14 16 18 20 22 )
 Distances:		10 21
-Free memory:		173062 MB
+Free memory:		267572 MB
 Total memory:		385428 MB
 --------------------------------------------------------------------------------
 Domain:			1
 Processors:		( 1 3 5 7 9 11 13 15 17 19 21 23 )
 Distances:		21 10
-Free memory:		181459 MB
+Free memory:		104829 MB
 Total memory:		387069 MB
 --------------------------------------------------------------------------------
 
@@ -921,18 +804,18 @@ Socket 1:
 | |                                                        19 MB                                                        | |
 | +---------------------------------------------------------------------------------------------------------------------+ |
 +-------------------------------------------------------------------------------------------------------------------------+
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
-ct1pt-tnode007.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
+ct1pt-tnode008.hpc
 ct1pt-tnode008.hpc
 ct1pt-tnode008.hpc
 ct1pt-tnode008.hpc

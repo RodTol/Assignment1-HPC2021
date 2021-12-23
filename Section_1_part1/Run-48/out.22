@@ -1,9 +1,6 @@
 I am process 0 and I have received 44 messages. My final messages have tag 0 and value -231 , 231
-The mean of time is :2.74088e-05
 I am process 1 and I have received 44 messages. My final messages have tag 10 and value -231 , 231
-I am process 3 and I have received 44 messages. My final messages have tag 30 and value -231 , 231
 I am process 4 and I have received 44 messages. My final messages have tag 40 and value -231 , 231
-I am process 5 and I have received 44 messages. My final messages have tag 50 and value -231 , 231
 I am process 7 and I have received 44 messages. My final messages have tag 70 and value -231 , 231
 I am process 8 and I have received 44 messages. My final messages have tag 80 and value -231 , 231
 I am process 9 and I have received 44 messages. My final messages have tag 90 and value -231 , 231
@@ -19,5 +16,8 @@ I am process 18 and I have received 44 messages. My final messages have tag 180 
 I am process 19 and I have received 44 messages. My final messages have tag 190 and value -231 , 231
 I am process 20 and I have received 44 messages. My final messages have tag 200 and value -231 , 231
 I am process 21 and I have received 44 messages. My final messages have tag 210 and value -231 , 231
+The mean of time is :2.91806e-05
 I am process 2 and I have received 44 messages. My final messages have tag 20 and value -231 , 231
+I am process 3 and I have received 44 messages. My final messages have tag 30 and value -231 , 231
 I am process 6 and I have received 44 messages. My final messages have tag 60 and value -231 , 231
+I am process 5 and I have received 44 messages. My final messages have tag 50 and value -231 , 231

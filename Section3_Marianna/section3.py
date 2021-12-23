@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 
-files_to_be_opened = [#'thin_2_nodes_4_processes.txt', 'thin_2_nodes_8_processes.txt', 'thin_2_nodes_12_processes.txt', 'thin_2_nodes_24_processes.txt', 'thin_2_nodes_48_processes.txt',
-#'thin_2_sockets_4_processes.txt', 'thin_2_sockets_8_processes.txt', 'thin_2_sockets_12_processes.txt', 'thin_same_socket_4_processes.txt', 'thin_same_socket_8_processes.txt', 
-#'thin_same_socket_12_processes.txt'] 
-'gpu_2_nodes_4_processes.txt', 'gpu_2_nodes_8_processes.txt', 'gpu_2_nodes_12_processes.txt', 'gpu_2_nodes_24_processes.txt', 
-'gpu_2_nodes_48_processes.txt', 'gpu_2_sockets_4_processes.txt', 'gpu_2_sockets_8_processes.txt', 'gpu_2_sockets_12_processes.txt', 'gpu_same_socket_4_processes.txt', 
-'gpu_same_socket_4_processes.txt', 'gpu_same_socket_8_processes.txt', 'gpu_same_socket_12_processes.txt']
+files_to_be_opened = ['thin_2_nodes_4_processes.txt', 'thin_2_nodes_8_processes.txt', 'thin_2_nodes_12_processes.txt', 'thin_2_nodes_24_processes.txt', 'thin_2_nodes_48_processes.txt',
+'thin_2_sockets_4_processes.txt', 'thin_2_sockets_8_processes.txt', 'thin_2_sockets_12_processes.txt', 'thin_same_socket_4_processes.txt', 'thin_same_socket_8_processes.txt', 
+'thin_same_socket_12_processes.txt'] 
+#'gpu_2_nodes_4_processes.txt', 'gpu_2_nodes_8_processes.txt', 'gpu_2_nodes_12_processes.txt', 'gpu_2_nodes_24_processes.txt', 
+#'gpu_2_nodes_48_processes.txt', 'gpu_2_sockets_4_processes.txt', 'gpu_2_sockets_8_processes.txt', 'gpu_2_sockets_12_processes.txt', 'gpu_same_socket_4_processes.txt', 
+#'gpu_same_socket_4_processes.txt', 'gpu_same_socket_8_processes.txt', 'gpu_same_socket_12_processes.txt']
 
 # MANCANO I SERIAL
 

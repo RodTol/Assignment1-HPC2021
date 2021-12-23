@@ -1,5 +1,5 @@
 I am process 0 and I have received 62 messages. My final messages have tag 0 and value -465 , 465
-The mean of time is :7.26906e-05
+The mean of time is :7.23263e-05
 I am process 1 and I have received 62 messages. My final messages have tag 10 and value -465 , 465
 I am process 2 and I have received 62 messages. My final messages have tag 20 and value -465 , 465
 I am process 3 and I have received 62 messages. My final messages have tag 30 and value -465 , 465
@@ -22,7 +22,6 @@ I am process 19 and I have received 62 messages. My final messages have tag 190 
 I am process 20 and I have received 62 messages. My final messages have tag 200 and value -465 , 465
 I am process 21 and I have received 62 messages. My final messages have tag 210 and value -465 , 465
 I am process 22 and I have received 62 messages. My final messages have tag 220 and value -465 , 465
-I am process 23 and I have received 62 messages. My final messages have tag 230 and value -465 , 465
 I am process 24 and I have received 62 messages. My final messages have tag 240 and value -465 , 465
 I am process 25 and I have received 62 messages. My final messages have tag 250 and value -465 , 465
 I am process 26 and I have received 62 messages. My final messages have tag 260 and value -465 , 465
@@ -30,3 +29,4 @@ I am process 27 and I have received 62 messages. My final messages have tag 270 
 I am process 28 and I have received 62 messages. My final messages have tag 280 and value -465 , 465
 I am process 29 and I have received 62 messages. My final messages have tag 290 and value -465 , 465
 I am process 30 and I have received 62 messages. My final messages have tag 300 and value -465 , 465
+I am process 23 and I have received 62 messages. My final messages have tag 230 and value -465 , 465

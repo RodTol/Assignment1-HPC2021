@@ -1,3 +1,5 @@
+I am process 0 and I have received 74 messages. My final messages have tag 0 and value -666 , 666
+The mean of time is :8.53169e-05
 I am process 1 and I have received 74 messages. My final messages have tag 10 and value -666 , 666
 I am process 2 and I have received 74 messages. My final messages have tag 20 and value -666 , 666
 I am process 3 and I have received 74 messages. My final messages have tag 30 and value -666 , 666
@@ -21,8 +23,6 @@ I am process 20 and I have received 74 messages. My final messages have tag 200 
 I am process 21 and I have received 74 messages. My final messages have tag 210 and value -666 , 666
 I am process 22 and I have received 74 messages. My final messages have tag 220 and value -666 , 666
 I am process 23 and I have received 74 messages. My final messages have tag 230 and value -666 , 666
-I am process 0 and I have received 74 messages. My final messages have tag 0 and value -666 , 666
-The mean of time is :8.56639e-05
 I am process 24 and I have received 74 messages. My final messages have tag 240 and value -666 , 666
 I am process 25 and I have received 74 messages. My final messages have tag 250 and value -666 , 666
 I am process 26 and I have received 74 messages. My final messages have tag 260 and value -666 , 666
