@@ -1,4 +1,4 @@
-from matplotlib import use
+
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -83,17 +83,16 @@ for k in [0,1,2] :
     f.close()
     continue
 
-
-import plotly.graph_objects as go
-
                 #prima     seconda     terza
 media = []  # 1d,2d,3d    1d,2d,3d    1d,2d,3d
+tempi_tot = []
 for k in opzioni:
     tempi = []
     f = open("{}.txt".format(k), "r")
     lines = f.readlines()
     for i in range(1,40):
         tempi.append(float(lines[(i*2)-1]))
+        tempi_tot.append(float(lines[(i*2)-1]))
     f.close()
 
     print(len(tempi))
@@ -106,13 +105,7 @@ for k in opzioni:
     media.append(sum(tempi_2d)/8.0) #media2d
     media.append(sum(tempi_3d)/30.0)   #media 3d 
 
-    fig = go.Figure(data=[go.Table(header=dict(values=['Distr', '800 300 100']),
-                 cells=dict(values=[topolo, tempi]))
-                     ])
-
     plt.scatter(range(39), tempi, label = '{}'.format(k))
-
-fig.show()
     
 #plt.plot([1,39],[sum(media)/3.0,sum(media)/3.0])
 plt.plot([0,0.5],[media[0],media[0]], c = 'blue')
@@ -134,4 +127,17 @@ plt.grid(True)
 plt.savefig('plot.png')
 plt.close
 
+from tabulate import tabulate
+ 
+f = open("table.txt", "w+")
+print(len(tempi_tot))
+table = []
+table.append(['Paradigm', '2400-100-100', '1200-200-100', '800-300-100'])
+for i in range(39):
+    b = [topolo[i], tempi_tot[i], tempi_tot[i+39], tempi_tot[i+78]]
+    table.append(b)
 
+a = tabulate(table, headers='firstrow', tablefmt='fancy_grid')
+f.write(a)
+
+f.close()
