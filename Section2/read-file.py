@@ -1,8 +1,11 @@
+from os import name, sep
 from matplotlib import use
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 from math import sqrt
+
+from pandas.io.parsers import read_csv
+import numpy as np
 
 lines = []
 times = []
@@ -73,11 +76,37 @@ for k in opzioni :
     plt.scatter(df.iloc[:,0], df.iloc[:,1])
     plt.savefig('Grafici/{}.png'.format(k))
 
-    err = (df.iloc[:,1] - lamb[ind] + df.iloc[:,0]/b[ind])**2
-    err = sqrt(sum(err)/len(df.iloc[:,1]))
-    print(err)
+    #err = (df.iloc[:,1] - lamb[ind] + df.iloc[:,0]/b[ind])**2
+    #err = sqrt(sum(err)/len(df.iloc[:,1]))
+    #print(err)
 
     ind +=1
     del(y)
     
+col_names = ["#bytes", "#repetitions", "#t[usec]", "Mbytes/sec"]
+command_line = ["mpirun -np 2 --map-by core  --report-bindings ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 --map-by socket  --report-bindings ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 --map-by node --report-bindings ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 --mca pml ob1 --report-bindings  --map-by core --mca btl tcp,self ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 --mca pml ob1 --report-bindings  --map-by socket --mca btl tcp,self ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 --mca pml ob1 --report-bindings  --map-by node --mca btl tcp,self ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 -ppn=2 -env I_MPI_DEBUG 5 -genv I_MPI_PIN_PROCESSOR_LIST 0,2  ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 -ppn=2 -env I_MPI_DEBUG 5 -genv I_MPI_PIN_PROCESSOR_LIST 0,1  ./IMB-MPI1 PingPong -msglog 29",
+                "mpirun -np 2 -ppn=1 -env I_MPI_DEBUG 5 -host ct1pt-tnode007,ct1pt-tnode009 ./IMB-MPI1 PingPong -msglog 29"]
+
+
+
+
+for k in range(9):
+    f = pd.read_csv("Grafici/{}.csv".format(opzioni[k]), skiprows=[0], names=col_names )
+    print(f.head())
+
+    f.to_csv('CSV/{}.csv'.format(opzioni[k]), index=None, header=None)
+
+    with open('CSV/{}.csv'.format(opzioni[k]), 'r+') as g:
+        content = g.read()
+        g.seek(0, 0)
+        g.write('#header_line 1:{}'.format(command_line[k]) + '\n' +
+             "#header_line 2:  ct1pt-tnode007,ct1pt-tnode009 " + '\n' +
+             "#header_line 3: lam b computed" +'\n' + content)
 

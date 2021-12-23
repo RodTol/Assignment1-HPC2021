@@ -137,7 +137,7 @@ for i in range(39):
     b = [topolo[i], tempi_tot[i], tempi_tot[i+39], tempi_tot[i+78]]
     table.append(b)
 
-a = tabulate(table, headers='firstrow', tablefmt='fancy_grid')
+a = tabulate(table, headers='firstrow', tablefmt='fancy_grid', showindex=True)
 f.write(a)
 
 f.close()
