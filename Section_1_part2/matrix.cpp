@@ -1,3 +1,4 @@
+#include <iostream>
 #include <mpi.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,638 +7,352 @@
 #include <thread>
 
 #define SEED 35791246
-/*NELLA VERSIONE FINALE METTI IL GENERATORE DI SEED RANDOM*/
 
 double d_gen(double Min_val, double Max_val);
 
-int main ( int argc , char *argv[ ] )
-{
-    /*VARIABILE PER ATTIVARE CONTROLLI EXTRA*/
-    int check = 0, flag = 1;
-    double start_time, end_time;
-    int n_proc, irank, master = 0;
+int main(int argc, char* argv[]) {
 
-    MPI_Init(&argc,&argv);
-    /*Assegno il rank usando questo comunicatore*/
-    MPI_Comm_rank(MPI_COMM_WORLD,&irank);
-    /*Mi dice quanti processori sono assegnati a un comunicatore*/
-    MPI_Comm_size(MPI_COMM_WORLD,&n_proc);
+	
+	int dimensions[39][3] = {
+		{24, 1, 1} ,
+	    	/*2-dinensional*/
+		{12, 2, 1} ,
+		{3, 8, 1} ,
+		{4,6,1} ,
+		{6,4,1} ,
+		{8,3,1} ,
+		{2, 12, 1} ,
+		{1,24,1} ,
+		{24,1,1} ,
+	    	/*3-dimensional*/
+		{2,2,6} ,
+		{2,6,2} ,
+		{6,2,2} ,
+		{2,3,4} ,
+		{2,4,3} ,
+		{3,2,4} ,
+		{3,4,2} ,
+		{4,2,3} ,
+		{4,3,2} ,
+		{1,1,24},
+		{1,24,1} ,
+		{24,1,1} ,
+		{1,2, 12} ,
+		{1,12,2} ,
+		{2,1,12} ,
+		{2,12,1} ,
+		{12,1,2} ,
+		{12,2,1} ,
+		{1,3,8} ,
+		{1,8,3} ,
+		{3,1,8} ,
+		{3,8,1} ,
+		{8,1,3} ,
+		{8,3,1} ,
+		{1,4,6} ,
+		{1,6,4} ,
+		{4,1,6} ,
+		{4,6,1} ,
+		{6,1,4} ,
+		{6,4,1}
+    	}; 
 
-    int dim_x, dim_y, dim_z, volume;
-    int resto_x, resto_y, resto_z;
-    int dim_x_fake, dim_y_fake, dim_z_fake;
-    int dim_x_sub, dim_y_sub, dim_z_sub;
 
-    dim_x = atoi(argv[1]);
-    dim_y = atoi(argv[2]);
-    dim_z = atoi(argv[3]);
 
-    /*Creiamo le matrici base*/
-    double matrix1[dim_x][dim_y][dim_z], matrix2[dim_x][dim_y][dim_z], matrix3[dim_x][dim_y][dim_z],
-     matrix_true[dim_x][dim_y][dim_z];
+	int dim_x = atoi(argv[1]);
+	int dim_y = atoi(argv[2]);
+	int dim_z = atoi(argv[3]);
 
-    /*Sto indicando come master, quello indicato da comm_world che mi 
-    aspetto sia lo stesso per i comunicatori "cartesiani", dato che sono 
-    creati usando quest'ultimo*/
-    if (irank == master)
-    {
-        /*Creiamo i valori casuali nel core 0 di tutte e 3
-        le matrici*/
-        for (int i = 0; i < dim_x; i++)
-        {
-            for (int j = 0; j < dim_y; j++)
-            {
-                for (int k = 0; k < dim_z; k++)
-                {
-                    matrix1[i][j][k] = d_gen(0,100);
-                    matrix2[i][j][k] = d_gen(0,100);
-                    matrix_true[i][j][k] = matrix1[i][j][k]+matrix2[i][j][k];
-                }
-            }
-        }
-    }
+	int volume;
 
-    dim_x_fake = atoi(argv[1]);
-    dim_y_fake = atoi(argv[2]);
-    dim_z_fake = atoi(argv[3]);
+	int size;
+	int irank;
+	int periodic=0, master=0;
+	
+	// Communicator
+	MPI_Init(&argc, &argv);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
+	MPI_Comm_rank(MPI_COMM_WORLD, &irank);
 
-    int dimensioni[39][3] = {
-        {24, 1, 1} ,
-    /*2-dinension*/
-        {12, 2, 1} ,
-        {3, 8, 1} ,
-        {4,6,1} ,
-        {6,4,1} ,
-        {8,3,1} ,
-        {2, 12, 1} ,
-        {1,24,1} ,
-        {24,1,1} ,
-    /*3-dimension*/
-        {2,2,6} ,
-        {2,6,2} ,
-        {6,2,2} ,
-        {2,3,4} ,
-        {2,4,3} ,
-        {3,2,4} ,
-        {3,4,2} ,
-        {4,2,3} ,
-        {4,3,2} ,
-        {1,1,24},
-        {1,24,1} ,
-        {24,1,1} ,
-        {1,2, 12} ,
-        {1,12,2} ,
-        {2,1,12} ,
-        {2,12,1} ,
-        {12,1,2} ,
-        {12,2,1} ,
-        {1,3,8} ,
-        {1,8,3} ,
-        {3,1,8} ,
-        {3,8,1} ,
-        {8,1,3} ,
-        {8,3,1} ,
-        {1,4,6} ,
-        {1,6,4} ,
-        {4,1,6} ,
-        {4,6,1} ,
-        {6,1,4} ,
-        {6,4,1}
-    };    
 
-if (irank == 0)
-{
-    std::cout << "Caso uno-dimensionale-----------------------------------------" << std::endl;
-}
 
-    int periodic = 0, left_p, right_p;
-    MPI_Comm OneD_com;
+	double start_time, end_time;	
 
-    /*Creo un comunicatore per una virtual topology 1-D*/
-    MPI_Cart_create( MPI_COMM_WORLD, 1, &n_proc, &periodic, 1, &OneD_com);
-    /*Definisco il movimento a destra */
-    MPI_Cart_shift( OneD_com, 0, 1, &left_p, &right_p );
-    /*Assegno il rank usando questo comunicatore*/
-    MPI_Comm_rank(OneD_com,&irank);
-    /*Indico quanti processori sono assegnati al comunicatore*/
-    MPI_Comm_size(OneD_com,&n_proc);
+	// The 2 matrices to be sum and the result matrix are created 
+	double matrix1[dim_x][dim_y][dim_z];
+        double matrix2[dim_x][dim_y][dim_z];
+	double matrix_result[dim_x][dim_y][dim_z];	
 
-    /*Calcole le dimensioni delle sottomatrici*/
-    dim_x_sub = dim_x/dimensioni[0][0];
-    dim_y_sub = dim_y/dimensioni[0][1];
-    dim_z_sub = dim_z/dimensioni[0][2];
-    /*Nel report segna che il codice potrebbe essere allegerito, rimuovendo
-    delle parti che sicuramente sono inutili per il caso 1-D ma in un ottica
-    di lasciare una sorta di "template", la scrittura è molto simile a quella di 
-    2-D e 3-D.*/
+	// Random values are assigned to the initial matrices
+	if (irank == master) {
+		for (int i{0}; i < dim_x; i++) {
+			for (int j{0}; j < dim_y; j++) {
+				for (int k{0}; k < dim_z; k++) {
+					matrix1[i][j][k] = d_gen(0,100);
+					matrix2[i][j][k] = d_gen(0,100);
+				}
+			}
+		}
+	}
+	
+	// A new communicator for the 1D case is created
+	MPI_Comm comm1d;
+	MPI_Cart_create(MPI_COMM_WORLD, 1, &size, &periodic, 1, &comm1d);
+	//The rank is assigned
+    	MPI_Comm_rank(comm1d,&rank);
+    	//How many processors are assigned to the communicator
+    	MPI_Comm_size(comm1d,&size);
 
-    /*Vedo se il resto è nullo*/
-    resto_x = dim_x - dimensioni[0][0]*dim_x_sub;
-    resto_y = dim_y - dimensioni[0][1]*dim_y_sub;
-    resto_z = dim_z - dimensioni[0][2]*dim_z_sub;
 
-    if (irank == master)
-    {
-        std::cout << "Dimensioni sub matrix " << dim_x_sub << " " << dim_y_sub << " " << dim_z_sub << std::endl;
-        std::cout << "Resto x " << resto_x << "  Resto y " << resto_y << "  Resto z " << resto_z << std::endl;
-    }
+	// The dimensions of the submatrices
+    	dim_x_sub = dim_x/dimensions[0][0];
+    	dim_y_sub = dim_y/dimensions[0][1];
+    	dim_z_sub = dim_z/dimensions[0][2];
+    	
+    	// Is the reminder null?
+    	reminder_x = dim_x - dimensions[0][0]*dim_x_sub;
+    	reminder_y = dim_y - dimensions[0][1]*dim_y_sub;
+    	reminder_z = dim_z - dimensions[0][2]*dim_z_sub;
+    	
+    	if (reminder_x !=0)
+    	{
+		// Expanded dimension
+		dim_x_fake = dim_x + dimensions[0][0] - reminder_x ; 
+		// Expanded sub-dimension
+		dim_x_sub = dim_x_fake/dimensions[0][0];
+    	}	
+    	if (reminder_y !=0)
+    	{
+		// Expanded dimension
+		dim_y_fake = dim_y + dimensions[0][1] - reminder_y;  
+		// Expanded sub-dimension
+		dim_y_sub = dim_y_fake/dimensions[0][1];
+    	}
+    	if (resto_z !=0)
+    	{
+        	// Expanded dimension
+        	dim_z_fake = dim_z + dimensioni[0][2] - resto_z; 
+        	// Expanded sub-dimension
+        	dim_z_sub = dim_z_fake/dimensioni[0][2];
+    	}	
+    	
+    	// The expanded matrix are initialised
+	double matrix1fake[dim_x_fake][dim_y_fake][dim_z_fake];
+        double matrix2fake[dim_x_fake][dim_y_fake][dim_z_fake];
+        double matrix_result_fake[dim_x_fake][dim_y_fake][dim_z_fake];
 
-    if (resto_x !=0)
-    {
-        /*Dimensioni della matrice espansa*/
-        dim_x_fake = dim_x + dimensioni[0][0] - resto_x ; 
-        /*Dimensioni delle sub_matrix che dividono a resto 0
-        le matrici fake*/
-        dim_x_sub = dim_x_fake/dimensioni[0][0];
-    }
-
-    if (resto_y !=0)
-    {
-        /*Dimensioni della matrice espansa*/
-        dim_y_fake = dim_y + dimensioni[0][1] - resto_y;  
-        /*Dimensioni delle sub_matrix che dividono a resto 0
-        le matrici fake*/
-        dim_y_sub = dim_y_fake/dimensioni[0][1];
-    }
-
-    if (resto_z !=0)
-    {
-        /*Dimensioni della matrice espansa*/
-        dim_z_fake = dim_z + dimensioni[0][2] - resto_z; 
-        /*Dimensioni delle sub_matrix che dividono a resto 0
-        le matrici fake*/
-        dim_z_sub = dim_z_fake/dimensioni[0][2];
-    }
-    
-    /*Creiamo le nostre matrici modificate, che nel caso ogni
-    resto sia nullo, avranno dimensione nulla*/
-    double matrix1_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {}, matrix2_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {},
-    matrix3_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {};
-
-    /*Creiamo finalemnte le sottomatrici con le dimensioni corrette
-    per eseguire i conti*/
-    double sub_matrix1[dim_x_sub][dim_y_sub][dim_z_sub], sub_matrix2[dim_x_sub][dim_y_sub][dim_z_sub],
-     sub_matrix3[dim_x_sub][dim_y_sub][dim_z_sub];
-    /*Il volume indica il numero di double da spostare (che teoricamente sarà
-    sempre 100x100x100)*/
-    volume =  dim_x_sub*dim_y_sub*dim_z_sub;
-
-    if (irank == master)
-    {
-        std::cout << "Dimensioni fake " << dim_x_fake << " " << dim_y_fake << " " << dim_z_fake << std::endl;
-        std::cout << "Dimensioni sub matrix  finali " << dim_x_sub << " " << dim_y_sub << " " << dim_z_sub << std::endl;
-    }
-    
-    /*Assegniamo i valori sono nel master*/
-    if (irank == master)
-    { 
-        /*Creiamo i valori casuali nel core 0 di tutte e 3
-        le matrici*/
-        for (int i = 0; i < dim_x; i++)
-        {
-            for (int j = 0; j < dim_y; j++)
-            {
-                for (int k = 0; k < dim_z; k++)
-                {
-                    matrix1_fake[i][j][k] = matrix1[i][j][k];
-                    matrix2_fake[i][j][k] = matrix2[i][j][k];
-                }
-            }
-        }
-
-        if (check == 1)
-        {
-            std::cout << "------------MATRIX 1------------\n";
-            /*Check dei valori di una fetta*/
-            for (int i = 0; i < 5; i++)
-            {
-            for (int j = 0; j < dim_y; j++)
-            {
-                std::cout << matrix1[i][j][0] << "  ";
-            }
-            
-                std::cout << "\n";
-            }
-            std::cout << "------------MATRIX 2------------\n";
-            /*Check dei valori di una fetta*/
-            for (int i = 0; i < 5; i++)
-            {
-            for (int j = 0; j < dim_y; j++)
-            {
-                std::cout << matrix2[i][j][0] << "  ";
-            }
-            
-                std::cout << "\n";
-            }
-            std::cout << "------------MATRIX TRUE------------\n";
-            /*Check dei valori di una fetta*/
-            for (int i = 20; i < dim_x_fake; i++)
-            {
-                for (int j = 0; j < dim_y; j++)
-                {      
-                std::cout << matrix_true[i][j][0] << "  ";
-                }
-                std::cout << "\n";
-            }
-            std::cout << std::endl;
-
-            std::cout << "RIGHE EXTRA MATRICE FAKE \n";
-            for (int i = dim_x; i < dim_x_fake; i++)
-            {
-                for (int j = 0; j < dim_y_fake; j++)
-                {
-                        std::cout << matrix1_fake[i][j][0] << " ";
-                }
-                std::cout << "\n";
-            }
-            std::cout << std::endl;
-        }
+	double submatrix1[dim_x_sub][dim_y_sub][dim_z_sub];
+        double submatrix2[dim_x_sub][dim_y_sub][dim_z_sub];
+        double submatrix_result[dim_x_sub][dim_y_sub][dim_z_sub];
         
-    }
-    
-    start_time = MPI_Wtime();
-
-    MPI_Scatter(&matrix1_fake, volume, MPI_DOUBLE, &sub_matrix1, volume, MPI_DOUBLE, 0, OneD_com);
-    MPI_Scatter(&matrix2_fake, volume, MPI_DOUBLE, &sub_matrix2, volume, MPI_DOUBLE, 0, OneD_com);
-
-    if (check == 1)
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            if (irank == i)
-            {
-                std::this_thread::sleep_for(std::chrono::milliseconds(i*10));
-                std::cout << "I am " << irank << " and my values are\n";
-
-                std::cout << "------------MATRIX 1------------\n";
-                for (int i = 0; i < dim_x_sub; i++)
-                {
-                for (int j = 0; j < dim_y_sub; j++)
-                {
-                    std::cout << sub_matrix1[i][j][1] << "  ";
-                }
-                    std::cout << "\n";
-                }
-                std::cout << "------------MATRIX 2------------\n";
-
-                for (int i = 0; i < dim_x_sub; i++)
-                {
-                for (int j = 0; j < dim_y_sub; j++)
-                {
-                    std::cout << sub_matrix2[i][j][1] << "  ";
-                }
-                    std::cout << "\n";
-                }
-                std::cout << std::endl;
-                
-            }
-        }
-    }
-
-    /*Eseguiamo la somma*/
-    for (int i = 0; i < dim_x_sub; i++)
-        {
-            for (int j = 0; j < dim_y_sub; j++)
-            {
-                for (int k = 0; k < dim_z_sub; k++)
-                {
-                    sub_matrix3[i][j][k] = sub_matrix1[i][j][k]+sub_matrix2[i][j][k];
-                }
-            }
-        }
-
-    MPI_Gather(&sub_matrix3, volume, MPI_DOUBLE, &matrix3_fake, volume, MPI_DOUBLE, 0, OneD_com);
-
-    end_time = MPI_Wtime();
-
-    if (irank == master)
-    {
-        /*Assegno i valori alla matrice di dimensioni corrette*/
-        for (int i = 0; i < dim_x; i++)
-        {
-            for (int j = 0; j < dim_y; j++)
-            {
-                for (int k = 0; k < dim_z; k++)
-                {
-                    matrix3[i][j][k] =  matrix3_fake[i][j][k];
-                }
-            }
-        }
-
-        if (check == 1) {
-        std::cout << "I am " << irank << " and my values are\n";
-        std::cout << "------------MATRIX 3------------\n";
-        for (int i = 20; i < dim_x; i++)
-        {
-            for (int j = 0; j < dim_y; j++)
-            {
-            std::cout << matrix3[i][j][0] << "  ";
-            }
-            std::cout << "\n";
-        }
-        std::cout << std::endl;
-        }
-
-
-        /*Confronto la matrice true con il mio risultato ottenuto dal gather*/
-        for (int i = 0; i < dim_x; i++)
-        {
-            for (int j = 0; j < dim_y; j++)
-            {
-                for (int k = 0; k < dim_z; k++)
-                {
-                    if (matrix3[i][j][k] != matrix_true[i][j][k])
-                    {
-                        std::cout << "Valori diversi negl' indici " << i << " " << j << " " << k << std::endl;
-                        std::cout << matrix3[i][j][k] << "     " << matrix_true[i][j][k] << std::endl;
-                        flag = 0;
-                    }   
-                }
-            }
-        } 
-        if (flag == 1) {
-            std::cout << "Operation successful!\n";
-            std::cout << "Time of comunication+operation is :" << end_time-start_time << std::endl;
-        }
-    }
-if (irank == master)
-{
-    std::cout << "Caso bi-dimensionale-----------------------------------------" << std::endl;
-}
-    //  OCIO AL NUMERO DI CASI
-    
-    for (int kallla= 1; kallla < 9; kallla++)
-    {
-        int paradigm = kallla;
-        if (irank == master)
-        {
-            std::cout << "Paradigma " << dimensioni[paradigm][0] << "  " << dimensioni[paradigm][1] << 
-            "-------------------------------" << std::endl;
-        }
-        
-        int periodic[2] = {0,0}, topolo[2] = {dimensioni[paradigm][0], dimensioni[paradigm][1]};
-
-        MPI_Comm TwoD_com;
-
-        /*Creo un comunicatore per una virtual topology 1-D*/
-        MPI_Cart_create( MPI_COMM_WORLD, 2, topolo, periodic, 1, &TwoD_com);
-        /*Assegno il rank usando questo comunicatore*/
-        MPI_Comm_rank(TwoD_com,&irank);
-        /*Indico quanti processori sono assegnati al comunicatore*/
-        MPI_Comm_size(TwoD_com,&n_proc);
-
-        /*Calcole le dimensioni delle sottomatrici*/
-        dim_x_sub = dim_x/dimensioni[paradigm][0];
-        dim_y_sub = dim_y/dimensioni[paradigm][1];
-        dim_z_sub = dim_z/dimensioni[paradigm][2];
-
-        /*Vedo se il resto è nullo*/
-        resto_x = dim_x - dimensioni[paradigm][0]*dim_x_sub;
-        resto_y = dim_y - dimensioni[paradigm][1]*dim_y_sub;
-        resto_z = dim_z - dimensioni[paradigm][2]*dim_z_sub;
-
-        if (irank == master)
-        {
-            std::cout << "Dimensioni sub matrix " << dim_x_sub << " " << dim_y_sub << " " << dim_z_sub << std::endl;
-            std::cout << "Resto x " << resto_x << "  Resto y " << resto_y << "  Resto z " << resto_z << std::endl;
-        }
-
-        if (resto_x !=0)
-        {
-            /*Dimensioni della matrice espansa*/
-            dim_x_fake = dim_x + dimensioni[paradigm][0] - resto_x ; 
-            /*Dimensioni delle sub_matrix che dividono a resto 0
-            le matrici fake*/
-            dim_x_sub = dim_x_fake/dimensioni[paradigm][0];
-        }
-
-        if (resto_y !=0)
-        {
-            /*Dimensioni della matrice espansa*/
-            dim_y_fake = dim_y + dimensioni[paradigm][1] - resto_y;  
-            /*Dimensioni delle sub_matrix che dividono a resto 0
-            le matrici fake*/
-            dim_y_sub = dim_y_fake/dimensioni[paradigm][1];
-        }
-
-        if (resto_z !=0)
-        {
-            /*Dimensioni della matrice espansa*/
-            dim_z_fake = dim_z + dimensioni[paradigm][2] - resto_z; 
-            /*Dimensioni delle sub_matrix che dividono a resto 0
-            le matrici fake*/
-            dim_z_sub = dim_z_fake/dimensioni[paradigm][2];
-        }
-        
-        /*Creiamo le nostre matrici modificate, che nel caso ogni
-        resto sia nullo, avranno dimensione nulla*/
-        double matrix1_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {}, matrix2_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {},
-        matrix3_fake[dim_x_fake][dim_y_fake][dim_z_fake] = {};
-
-        /*Creiamo finalemnte le sottomatrici con le dimensioni corrette
-        per eseguire i conti*/
-        double sub_matrix1[dim_x_sub][dim_y_sub][dim_z_sub], sub_matrix2[dim_x_sub][dim_y_sub][dim_z_sub],
-        sub_matrix3[dim_x_sub][dim_y_sub][dim_z_sub];
-        /*Il volume indica il numero di double da spostare (che teoricamente sarà
-        sempre 100x100x100)*/
         volume =  dim_x_sub*dim_y_sub*dim_z_sub;
-
-        if (irank == master)
-        {
-            std::cout << "Dimensioni fake " << dim_x_fake << " " << dim_y_fake << " " << dim_z_fake << std::endl;
-            std::cout << "Dimensioni sub matrix  finali " << dim_x_sub << " " << dim_y_sub << " " << dim_z_sub << std::endl;
-        }
         
-        /*Assegniamo i valori sono nel master*/
-        if (irank == master)
-        { 
-            /*Creiamo i valori casuali nel core 0 di tutte e 3
-            le matrici*/
-            for (int i = 0; i < dim_x; i++)
-            {
-                for (int j = 0; j < dim_y; j++)
-                {
-                    for (int k = 0; k < dim_z; k++)
-                    {
-                        matrix1_fake[i][j][k] = matrix1[i][j][k];
-                        matrix2_fake[i][j][k] = matrix2[i][j][k];
-                    }
-                }
-            }
+        // The values are assigned to the extended matrix in the root
+	if (irank == master) {		
+		for (int i{0}; i < dim_x; i++) {
+			for (int j{0}; j < dim_y; j++) {
+				for (int k{0}; k < dim_z; k++) {
+					matrix1fake[i][j][k] = matrix1[i][j][k];
+                                	matrix2fake[i][j][k] = matrix2[i][j][k];					
+				}
+			}
+		}
+	}
+	
+	start_time = MPI_Wtime();
 
-            if (check == 1)
-            {
-                std::cout << "------------MATRIX 1------------\n";
-                /*Check dei valori di una fetta*/
-                for (int i = 0; i < 5; i++)
-                {
-                for (int j = 0; j < dim_y; j++)
-                {
-                    std::cout << matrix1[i][j][0] << "  ";
-                }
-                
-                    std::cout << "\n";
-                }
-                std::cout << "------------MATRIX 2------------\n";
-                /*Check dei valori di una fetta*/
-                for (int i = 0; i < 5; i++)
-                {
-                for (int j = 0; j < dim_y; j++)
-                {
-                    std::cout << matrix2[i][j][0] << "  ";
-                }
-                
-                    std::cout << "\n";
-                }
-                std::cout << "------------MATRIX TRUE------------\n";
-                /*Check dei valori di una fetta*/
-                for (int i = 20; i < dim_x_fake; i++)
-                {
-                    for (int j = 0; j < dim_y; j++)
-                    {      
-                    std::cout << matrix_true[i][j][0] << "  ";
-                    }
-                    std::cout << "\n";
-                }
-                std::cout << std::endl;
-
-                std::cout << "RIGHE EXTRA MATRICE FAKE X\n";
-                for (int i = dim_x; i < dim_x_fake; i++)
-                {
-                    for (int j = 0; j < dim_y_fake; j++)
-                    {
-                            std::cout << matrix1_fake[i][j][0] << " ";
-                    }
-                    std::cout << "\n";
-                }
-                std::cout << std::endl;
-                std::cout << "RIGHE EXTRA MATRICE FAKE Y\n";
-                for (int i = 0; i < dim_x_fake; i++)
-                {
-                    for (int j = dim_y; j < dim_y_fake; j++)
-                    {
-                            std::cout << matrix1_fake[i][j][0] << " ";
-                    }
-                    std::cout << "\n";
-                }
-                std::cout << std::endl;
-            }
-            
-        }
+	// Scatter
+	MPI_Scatter(&matrix1fake, volume, MPI_DOUBLE, &submatrix1, volume, MPI_DOUBLE, 0, comm1d);
+        MPI_Scatter(&matrix2fake, volume, MPI_DOUBLE, &submatrix2, volume, MPI_DOUBLE, 0, comm1d);
         
-        start_time = MPI_Wtime();
-
-        MPI_Scatter(&matrix1_fake, volume, MPI_DOUBLE, &sub_matrix1, volume, MPI_DOUBLE, 0, TwoD_com);
-        MPI_Scatter(&matrix2_fake, volume, MPI_DOUBLE, &sub_matrix2, volume, MPI_DOUBLE, 0, TwoD_com);
-
-        if (check == 1)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                if (irank == i)
-                {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(i*10));
-                    std::cout << "I am " << irank << " and my values are\n";
-
-                    std::cout << "------------MATRIX 1------------\n";
-                    for (int i = 0; i < dim_x_sub; i++)
-                    {
-                    for (int j = 0; j < dim_y_sub; j++)
-                    {
-                        std::cout << sub_matrix1[i][j][1] << "  ";
-                    }
-                        std::cout << "\n";
-                    }
-                    std::cout << "------------MATRIX 2------------\n";
-
-                    for (int i = 0; i < dim_x_sub; i++)
-                    {
-                    for (int j = 0; j < dim_y_sub; j++)
-                    {
-                        std::cout << sub_matrix2[i][j][1] << "  ";
-                    }
-                        std::cout << "\n";
-                    }
-                    std::cout << std::endl;
-                    
-                }
-            }
-        }
-
-        /*Eseguiamo la somma*/
-        for (int i = 0; i < dim_x_sub; i++)
-            {
-                for (int j = 0; j < dim_y_sub; j++)
-                {
-                    for (int k = 0; k < dim_z_sub; k++)
-                    {
-                        sub_matrix3[i][j][k] = sub_matrix1[i][j][k]+sub_matrix2[i][j][k];
-                    }
-                }
-            }
-
-        MPI_Gather(&sub_matrix3, volume, MPI_DOUBLE, &matrix3_fake, volume, MPI_DOUBLE, 0, TwoD_com);
-
-        end_time = MPI_Wtime();
-
-        if (irank == master)
-        {
-            /*Assegno i valori alla matrice di dimensioni corrette*/
-            for (int i = 0; i < dim_x; i++)
-            {
-                for (int j = 0; j < dim_y; j++)
-                {
-                    for (int k = 0; k < dim_z; k++)
-                    {
-                        matrix3[i][j][k] =  matrix3_fake[i][j][k];
-                    }
-                }
-            }
-
-            if (check == 1) {
-            std::cout << "I am " << irank << " and my values are\n";
-            std::cout << "------------MATRIX 3------------\n";
-            for (int i = 20; i < dim_x; i++)
-            {
-                for (int j = 0; j < dim_y; j++)
-                {
-                std::cout << matrix3[i][j][0] << "  ";
-                }
-                std::cout << "\n";
-            }
-            std::cout << std::endl;
-            }
+        // The sums are performed
+	for (int i{0}; i < dim_x_sub; i++) {
+		for (int j{0}; j < dim_y_sub; j++) {
+			for (int k{0}; k < dim_z_sub; k++) {
+				submatrix_result[i][j][k] = submatrix1[i][j][k] + submatrix2[i][j][k];
+			}
+		}
+	}
+	
+	// Gather
+	MPI_Gather(&submatrix_result, volume, MPI_DOUBLE, &matrix_result_fake, volume, MPI_DOUBLE, 0, comm1d);
+	
+	end_time = MPI_Wtime();
+	total_time = end_time - start_time;
+	if (irank == master) {		
+		std::cout << " For distribution " << dimensions[0] << " " << dimensions[1] << " " << dimensions[2] << " time is: " << total_time <<std::endl;
+		}
+		
+	for (int i{0}; i < dim_x; i++) {
+			for (int j{0}; j < dim_y; j++) {
+				for (int k{0}; k < dim_z; k++) {
+					matrix_result[i][j][k] = matrix_result_fake[i][j][k];
+				}
+			}
+		}
 
 
-            /*Confronto la matrice true con il mio risultato ottenuto dal gather*/
-            for (int i = 0; i < dim_x; i++)
-            {
-                for (int j = 0; j < dim_y; j++)
-                {
-                    for (int k = 0; k < dim_z; k++)
-                    {
-                        if (matrix3[i][j][k] != matrix_true[i][j][k])
-                        {
-                            std::cout << "Valori diversi negl' indici " << i << " " << j << " " << k << std::endl;
-                            std::cout << matrix3[i][j][k] << "     " << matrix_true[i][j][k] << std::endl;
-                            flag = 0;
-                        }   
-                    }
-                }
-            } 
-            if (flag == 1) {
-                std::cout << "Operation successful!\n";
-                std::cout << "Time of comunication+operation is :" << end_time-start_time << std::endl;
-            }
-        }
-    }
+/*
+	for (int i{1}; i < 9; i++) {
+
+		int dist_x = dimensions[i][0];
+		int dist_y = dimensions[i][1];
+		int dist_z = dimensions[i][2];
+
+		int distribution[3] = {dist_x, dist_y, dist_z};
+
+		// asking MPI to decompose our processes into a 3D cartesian grid
+		int dims[3] = {procs_on_x, procs_on_y, procs_on_z};
+		MPI_Dims_create(size, 3, dims);
+
+		// here we make dimensions non periodic
+		int periods[3] = {false, false, false};
+
+		// letting MPI decide to assign arbitrarily ranks if it is necessary
+		int reorder = true;
+
+		// now we create a new communicator given the new created topology
+		MPI_Comm new_comm;
+		MPI_Cart_create(MPI_COMM_WORLD, 3, dims, periods, reorder, &new_comm);
+
+		// to know which is my rank in the new communicator 
+		int my_rank;
+		MPI_Comm_rank(new_comm, &my_rank);
+
+		// to get my new coordinates in the new communicator
+		int my_coords[3];
+		MPI_Cart_coords(new_comm, my_rank, 3, my_coords);
+
+		// to check if evertything is working fine
+		// std::cout << "I am proc, old " << old_rank << ", new " << my_rank << " and I am located at coordinates " << my_coords[0] << my_coords[1] << my_coords[2];
+ 
+		
+		// now I can compute the size of the extended matrix, which are the ones with the side size divisible by the corresponding number of processes
+		int extended_size[3] = {0, 0, 0};
+		
+		for (int i{0}; i < 3; i++) {
+			if (sizes[i] % distribution[i] == 0) {
+				extended_size[i] = sizes[i];
+			}
+			else {
+				extended_size[i] = sizes[i] + (distribution[i] - sizes[i] % distribution[i]);
+			}
+		}
+		if (my_rank == 0) {
+			//std::cout << extended_size[0] << " " << extended_size[1] << " " << extended_size[2] << "\n";
+		}		
 
 
-    MPI_Finalize() ;
+		// now I can create the extended matrices and the submatrices in which the scatter will be executed
+		double matrix_A_ext[extended_size[0]][extended_size[1]][extended_size[2]];
+                double matrix_B_ext[extended_size[0]][extended_size[1]][extended_size[2]];
+                double matrix_final_ext[extended_size[0]][extended_size[1]][extended_size[2]];
+
+		int submatrix_sizes[3] = {extended_size[0]/distribution[0], extended_size[1]/distribution[1], extended_size[2]/distribution[2]};
+
+		double submatrix_A[submatrix_sizes[0]][submatrix_sizes[1]][submatrix_sizes[2]];
+                double submatrix_B[submatrix_sizes[0]][submatrix_sizes[1]][submatrix_sizes[2]];
+                double submatrix_sums[submatrix_sizes[0]][submatrix_sizes[1]][submatrix_sizes[2]];
+		
+		// now in the master, I create the extended matrices:
+		if (my_rank == 0) {		
+			for (int i{0}; i < dim_x; i++) {
+				for (int j{0}; j < size_2_dim; j++) {
+					for (int k{0}; k < size_3_dim; k++) {
+						matrix_A_ext[i][j][k] = matrix_A[i][j][k];
+                                        	matrix_B_ext[i][j][k] = matrix_B[i][j][k];					
+					}
+				}
+			}
+		}
+
+
+		// I can finally perform the scatter
+		int n_elem_to_each_process = submatrix_sizes[0]*submatrix_sizes[1]*submatrix_sizes[2]; 
+
+		t_start = MPI_Wtime();
+
+		MPI_Scatter(&matrix_A_ext, n_elem_to_each_process, MPI_DOUBLE, &submatrix_A, n_elem_to_each_process, MPI_DOUBLE, 0, new_comm);
+                MPI_Scatter(&matrix_B_ext, n_elem_to_each_process, MPI_DOUBLE, &submatrix_B, n_elem_to_each_process, MPI_DOUBLE, 0, new_comm);
+ 
+		// std::cout << " I am process " << my_rank << " and I am done scattering \n";  
+
+
+		// do the summations
+		for (int i{0}; i < submatrix_sizes[0]; i++) {
+			for (int j{0}; j < submatrix_sizes[1]; j++) {
+				for (int k{0}; k < submatrix_sizes[2]; k++) {
+					submatrix_sums[i][j][k] = submatrix_A[i][j][k] + submatrix_B[i][j][k];
+				}
+			}
+		}
+
+		
+		// perform the gather now
+		MPI_Gather(&submatrix_sums, n_elem_to_each_process, MPI_DOUBLE, &matrix_final_ext, n_elem_to_each_process, MPI_DOUBLE, 0, new_comm);
+		
+		t_end = MPI_Wtime();
+
+		// print the timings
+		double total_time_3D = t_end - t_start;
+		
+		if (my_rank == 0) {		
+			std::cout << " for distribution " << distribution[0] << " " << distribution[1] << " " << distribution[2] << " time is: " << total_time_3D <<std::endl;
+		}
+
+
+		// last thing to do is to assign the correct values to the final matrix, which is the one with the correct dimensions (the same as the input matrices)
+		for (int i{0}; i < dim_x; i++) {
+			for (int j{0}; j < size_2_dim; j++) {
+				for (int k{0}; k < size_3_dim; k++) {
+					matrix_final[i][j][k] = matrix_final_ext[i][j][k];
+				}
+			}
+		} 
+/*
+
+		if (my_rank == 0) {
+			// check on a slice of the matrix
+	        	for (int i{0}; i < dim_x; i++) {
+        	        	for (int j{0}; j < size_2_dim; j++) {
+                	        	std::cout << matrix_A[i][j][0] << " ";
+                		}
+				std::cout << "\n ";
+       			}
+			std:: cout << "\n";
+
+
+
+                	for (int i{0}; i < dim_x; i++) {
+                        	for (int j{0}; j < size_2_dim; j++) {
+                                	std::cout << matrix_B[i][j][0] << " ";
+                        	}
+                        	std::cout << "\n ";
+                	}
+			std::cout << "\n";
+
+
+                	for (int i{0}; i < dim_x; i++) {
+                        	for (int j{0}; j < size_2_dim; j++) {
+                                	std::cout << matrix_final[i][j][0] << " ";
+                        	}
+                       		std::cout << "\n ";
+                	}
+			std::cout << "\n";
+		}
+
+*/
+	}
+
+
+	MPI_Finalize();
+	return 0;
 }
+
 
 double d_gen(double Min_val, double Max_val)
 {
     double f = (double)rand() / RAND_MAX;
     return Min_val + f*(Max_val - Min_val);
 }
+
