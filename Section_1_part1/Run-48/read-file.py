@@ -23,9 +23,9 @@ print("Max min")
 print(min(times_float))
 print(max(times_float))
 
-lam = 0.4106 #us
+lam = 1.4458992932396856e-13  #us
 lam = lam*(10**(-6)) #s
-b = 5645.615 #mb/s
+b = 5659.268288317387 #mb/s
 size = 4*(10**-6) #mb
 Tc = lam + size/b
 
