@@ -83,6 +83,10 @@ for k in [0,1,2] :
     f.close()
     continue
 
+plt.rcParams["font.size"] =7
+plt.figure(figsize=(6.50, 5.00))
+plt.xticks(rotation = 50) 
+
                 #prima     seconda     terza
 media = []  # 1d,2d,3d    1d,2d,3d    1d,2d,3d
 tempi_tot = []
@@ -105,39 +109,46 @@ for k in opzioni:
     media.append(sum(tempi_2d)/8.0) #media2d
     media.append(sum(tempi_3d)/30.0)   #media 3d 
 
-    plt.scatter(range(39), tempi, label = '{}'.format(k))
-    
+   
+    plt.scatter(topolo, tempi, label = '{}'.format(k))
+
 #plt.plot([1,39],[sum(media)/3.0,sum(media)/3.0])
 plt.plot([0,0.5],[media[0],media[0]], c = 'blue')
 plt.plot([0.5,8.5],[media[1],media[1]], c = 'blue')
-plt.plot([8.5,38],[media[2],media[2]], c = 'blue')
+plt.plot([8.5,34],[media[2],media[2]], c = 'blue')
 
 plt.plot([0,0.5],[media[3],media[3]], c = 'orange')
 plt.plot([0.5,8.5],[media[4],media[4]], c = 'orange')
-plt.plot([8.5,38],[media[5],media[5]], c = 'orange')
+plt.plot([8.5,34],[media[5],media[5]], c = 'orange')
 
 plt.plot([0,0.5],[media[6],media[6]], c = 'green')
 plt.plot([0.5,8.5],[media[7],media[7]], c = 'green')
-plt.plot([8.5,38],[media[8],media[8]], c = 'green')
+plt.plot([8.5,34],[media[8],media[8]], c = 'green')
 
 plt.plot([0.5,0.5],[0.19,0.29], c = 'black')
 plt.plot([8.5,8.5],[0.19,0.29], c = 'black')
 plt.legend()
-plt.grid(True)
 plt.savefig('plot.png')
-plt.close
+plt.close()
 
 from tabulate import tabulate
- 
+#AGGIUNGI MEDIA PER OGNI PARADIGM E FAI PLOT
 f = open("table.txt", "w+")
 print(len(tempi_tot))
 table = []
-table.append(['Paradigm', '2400-100-100', '1200-200-100', '800-300-100'])
+med = []
+table.append(['Paradigm', '2400-100-100', '1200-200-100', '800-300-100', 'media'])
 for i in range(39):
-    b = [topolo[i], tempi_tot[i], tempi_tot[i+39], tempi_tot[i+78]]
+    media = (tempi_tot[i] + tempi_tot[i+39] + tempi_tot[i+78])/3 
+    b = [topolo[i], tempi_tot[i], tempi_tot[i+39], tempi_tot[i+78], media]
     table.append(b)
+    med.append(media)
 
 a = tabulate(table, headers='firstrow', tablefmt='fancy_grid', showindex=True)
 f.write(a)
-
 f.close()
+
+plt.xticks(rotation= 90)
+plt.scatter(topolo, med)
+plt.savefig('media.png')
+plt.close()
